@@ -145,7 +145,7 @@ export USE_HHVM=1
 export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " (\[\033[01;31m\]%s\[\033[00m\])"`\$ '
 
 export PATH=$HOME/bin:$PATH
-source ~/.nvm/nvm.sh
+[[ -s "$HOME/.nvm/nvm.sh" ]] && source ~/.nvm/nvm.sh
 
 export GOROOT=/usr/share/go
 export GOPATH=$HOME/go
