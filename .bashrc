@@ -136,39 +136,32 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export CMAKE_PREFIX_PATH=`/bin/pwd`/../usr
-export HPHP_HOME=`/bin/pwd`
-export HPHP_LIB=`/bin/pwd`/bin
-export USE_HHVM=1
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " (\[\033[01;31m\]%s\[\033[00m\])"`\$ '
-
 export PATH=$HOME/bin:$PATH
-[[ -s "$HOME/.nvm/nvm.sh" ]] && source ~/.nvm/nvm.sh
-
-export GOROOT=/usr/share/go
-export GOPATH=$HOME/go
 
 export MARKPATH=$HOME/.marks
-function jump { 
-        cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+
+function jump {
+  cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
-function mark { 
-        mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+
+function mark {
+  mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
 }
-function unmark { 
-        rm -i "$MARKPATH/$1"
+
+function unmark {
+  rm -i "$MARKPATH/$1"
 }
+
 function marks {
-        ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+  ls -l "$MARKPATH" | sed 's/ / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
 
 _completemarks() {
-        local curw=${COMP_WORDS[COMP_CWORD]}
-        local wordlist=$(find $MARKPATH -type l -printf "%f\n")
-        COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
-        return 0
+   local curw=${COMP_WORDS[COMP_CWORD]}
+   local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+   COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+   return 0
 }
 
 complete -F _completemarks jump unmark
