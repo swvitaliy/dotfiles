@@ -1,0 +1,15 @@
+"3.8.2 (created: 2014/02/13 23:52:43)
+
+map K 5k
+map J 5j
+map <C-h> :tabmove<Space>-1<Return>
+map <C-l> :tabmove<Space>+1<Return>
+map S :bmarks!<Space>
+map <F9> :set<Space>gui=invnavigation<Return>
+map <F10> :set<Space>gui=invtabs<Return>
+nmap h <C-PageUp>
+nmap l <C-PageDown>
+set tabnumbers
+source! /home/vit/.vimperatorrc.local
+
+" vim: set ft=vimperator:
