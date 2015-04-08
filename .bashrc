@@ -129,6 +129,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# php tools in docker container
+# . /opt/Projects/docker/images/php-essentials/bin/essentials.bashrc
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -137,9 +140,23 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " (\[\033[01;31m\]%s\[\033[00m\])"`\$ '
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.composer/vendor/bin/:$PATH
 
 export MARKPATH=$HOME/.marks
+
+export LC_COLLATE=ru_RU.UTF-8
+export LC_CTYPE=ru_RU.UTF-8
+
+source ~/bash_completion.sh
+
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
 
 function jump {
   cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"

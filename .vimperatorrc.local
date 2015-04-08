@@ -1,0 +1,5 @@
+:map <C-S-T> :tabgroups<Space>add<Space>
+:map <C-S-D> :tabgroups<Space>remove<CR>
+:map <C-S-B> :tabgroups<Space>switch<Space>
+:map <C-S-U> :tabgroups<Space>pushtab
+
