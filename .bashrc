@@ -139,6 +139,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+source ~/bash_completion.sh
 
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/go
@@ -150,17 +151,6 @@ export MARKPATH=$HOME/.marks
 
 export LC_COLLATE=ru_RU.UTF-8
 export LC_CTYPE=ru_RU.UTF-8
-
-source ~/bash_completion.sh
-
-alias gs='git status '
-alias ga='git add '
-alias gb='git branch '
-alias gc='git commit'
-alias gd='git diff'
-# alias go='git checkout '
-alias gk='gitk --all&'
-alias gx='gitx --all'
 
 function jump {
   cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
