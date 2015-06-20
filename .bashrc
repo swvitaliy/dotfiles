@@ -139,6 +139,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+
+export GOROOT=/usr/lib/go
+export GOPATH=$HOME/go
+
 export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " (\[\033[01;31m\]%s\[\033[00m\])"`\$ '
 export PATH=$HOME/bin:$HOME/.composer/vendor/bin/:$PATH
 
@@ -154,7 +158,7 @@ alias ga='git add '
 alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
-alias go='git checkout '
+# alias go='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
 
@@ -183,3 +187,6 @@ _completemarks() {
 
 complete -F _completemarks jump unmark
 
+
+export NVM_DIR="/home/vit/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
