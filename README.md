@@ -1,6 +1,10 @@
-# Bash + Vim Dotfiles
+# My dotfiles
 
-Для базовых настроек vim использую vim.spf13.com
+* vim
+* vimperator
+* tmux
+* git
+
 
 
 

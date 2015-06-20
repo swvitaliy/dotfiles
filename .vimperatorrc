@@ -10,6 +10,9 @@ map <F10> :set<Space>gui=invtabs<Return>
 nmap h <C-PageUp>
 nmap l <C-PageDown>
 set tabnumbers
-source! /home/vit/.vimperatorrc.local
+map <C-S-T> :tabgroups<Space>add<Space>
+map <C-S-D> :tabgroups<Space>remove<CR>
+map <C-S-B> :tabgroups<Space>switch<Space>
+map <C-S-U> :tabgroups<Space>pushtab
 
 " vim: set ft=vimperator:
