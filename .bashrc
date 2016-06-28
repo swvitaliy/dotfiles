@@ -141,11 +141,13 @@ fi
 
 source ~/bash_completion.sh
 
-export GOROOT=/usr/lib/go
-export GOPATH=$HOME/go
+export GOROOT=/home/vit/go
+export GOPATH=$HOME/Projects/crunch
 
-export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " (\[\033[01;31m\]%s\[\033[00m\])"`\$ '
-export PATH=$HOME/bin:$HOME/.composer/vendor/bin/:$PATH
+alias dlv='/home/vit/.WebStorm10/config/plugins/Go/lib/dlv/linux/dlv'
+
+export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " [\[\033[01;31m\]%s\[\033[00m\]"]`\$ '
+export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:$PATH
 
 export MARKPATH=$HOME/.marks
 
@@ -177,6 +179,7 @@ _completemarks() {
 
 complete -F _completemarks jump unmark
 
-
 export NVM_DIR="/home/vit/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+nvm use v0.10.25 %1> /dev/null
