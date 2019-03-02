@@ -21,6 +21,9 @@ COLOR_YELLOW='1;33'
 COLOR_WHITE='1;37'
 COLOR_NOCOLOR='0'
 
+blue(){ tput setaf 4; echo $@; tput sgr0; } 
+
+
 # Формируем коды для переключения цвета в двух вариантах: для подстановки в приглашение PS1 и для подстановки в обычный echo.
 for i in ${!COLOR_*} ; do export PS_$i="\[\033[${!i}m\]" ; export CODE_$i="\033[${!i}m" ; done
 
@@ -115,6 +118,8 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias vpn='sudo openvpn --config ~/Dropbox/cert/do-vpn-server/vpn4.ovpn'
+alias https='http --default-scheme=https'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -141,13 +146,13 @@ fi
 
 source ~/bash_completion.sh
 
-export GOROOT=/home/vit/go
-export GOPATH=$HOME/Projects/crunch
+#export GOROOT=/home/vit/go
+#export GOPATH=$HOME/Projects/crac
 
 alias dlv='/home/vit/.WebStorm10/config/plugins/Go/lib/dlv/linux/dlv'
 
 export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " [\[\033[01;31m\]%s\[\033[00m\]"]`\$ '
-export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:$PATH
+export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:/usr/share/dotnet/sdk/2.1.4/:$PATH
 
 export MARKPATH=$HOME/.marks
 
@@ -182,4 +187,5 @@ complete -F _completemarks jump unmark
 export NVM_DIR="/home/vit/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-nvm use v0.10.25 %1> /dev/null
+nvm use v8.11 %1> /dev/null
+#export PATH=/home/vit/Projects/depot_tools:"$PATH"
