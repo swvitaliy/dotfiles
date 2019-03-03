@@ -1,0 +1,1 @@
+alias dfh='df -h | grep -v tmpfs | grep -v loop'

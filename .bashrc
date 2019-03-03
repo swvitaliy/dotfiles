@@ -120,6 +120,9 @@ alias la='ls -A'
 alias l='ls -CF'
 alias vpn='sudo openvpn --config ~/Dropbox/cert/do-vpn-server/vpn4.ovpn'
 alias https='http --default-scheme=https'
+if [ -f /home/vit/.bashrc.in ]; then
+	. /home/vit/.bashrc.in
+fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -186,6 +189,5 @@ complete -F _completemarks jump unmark
 
 export NVM_DIR="/home/vit/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-nvm use v8.11 %1> /dev/null
+# nvm use v8.11 %1> /dev/null
 #export PATH=/home/vit/Projects/depot_tools:"$PATH"
