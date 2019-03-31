@@ -152,9 +152,12 @@ source ~/bash_completion.sh
 #export GOROOT=/home/vit/go
 #export GOPATH=$HOME/Projects/crac
 
-alias dlv='/home/vit/.WebStorm10/config/plugins/Go/lib/dlv/linux/dlv'
+function pc {
+  [ -d .git ] && git name-rev --name-only @
+}
+export PS1='\e];\s\a\e[33m\w|\e[36m$(pc)\e[m$ '
 
-export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " [\[\033[01;31m\]%s\[\033[00m\]"]`\$ '
+#export PS1='__git_ps1 " [\[\033[01;31m\]%s\[\033[00m\]"]`\$ '
 export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:/usr/share/dotnet/sdk/2.1.4/:$PATH
 
 export MARKPATH=$HOME/.marks
