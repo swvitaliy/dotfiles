@@ -87,9 +87,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -152,12 +152,17 @@ source ~/bash_completion.sh
 #export GOROOT=/home/vit/go
 #export GOPATH=$HOME/Projects/crac
 
-function pc {
-  [ -d .git ] && git name-rev --name-only @
-}
-export PS1='\e];\s\a\e[33m\w|\e[36m$(pc)\e[m$ '
+#pc() {
+#  [ -d .git ] && git name-rev --name-only @
+#}
 
-#export PS1='__git_ps1 " [\[\033[01;31m\]%s\[\033[00m\]"]`\$ '
+git_branch() {
+  git branch 2>/dev/null | grep '^*' | colrm 1 2
+}
+
+#export PS1=';e]\s\a\e[33m\w|\e[36m$(git_branch)\e[m $ '
+export PS1="\[\033[32m\]\w|\[\033[33m\]\$(git_branch)\[\033[00m\]$ "
+
 export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:/usr/share/dotnet/sdk/2.1.4/:$PATH
 
 export MARKPATH=$HOME/.marks
