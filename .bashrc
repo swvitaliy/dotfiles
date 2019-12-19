@@ -160,8 +160,8 @@ git_branch() {
   git branch 2>/dev/null | grep '^*' | colrm 1 2
 }
 
-#export PS1=';e]\s\a\e[33m\w|\e[36m$(git_branch)\e[m $ '
-export PS1="\[\033[32m\]\w|\[\033[33m\]\$(git_branch)\[\033[00m\]$ "
+#export PS1="\[\033[32m\]\w|\[\033[33m\]\$(git_branch)\[\033[00m\]$ "
+export PS1="\[\033[33m\]\w|\[\033[36m\]\$(git_branch)\[\033[00m\]$ "
 
 export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:/usr/share/dotnet/sdk/2.1.4/:$PATH
 
