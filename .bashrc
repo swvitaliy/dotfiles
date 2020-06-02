@@ -102,6 +102,9 @@ xterm*|rxvt*)
     ;;
 esac
 
+alias python=python3
+alias pip=pip3
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -123,6 +126,18 @@ alias https='http --default-scheme=https'
 if [ -f /home/vit/.bashrc.in ]; then
 	. /home/vit/.bashrc.in
 fi
+
+# Convert camelCase to camel_case (cc2u) and CAMEL_CASE (cc2U) formats
+alias cc2_='sed -r '\''s/([a-z0-9])([A-Z])/\1_\L\2/g'\'
+
+cc2u() {
+	echo $1 | cc2_
+}
+
+cc2U() {
+	v=$(cc2u $1)
+	echo ${v^^}
+}
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
