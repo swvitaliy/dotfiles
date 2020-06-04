@@ -34,3 +34,18 @@ let g:netrw_altv=1
 nnoremap <g-n> :Ntree<CR>
 
 set autoindent
+
+" Save file with sudo
+command! -nargs=0  WriteWithSudo :w !sudo tee % >/dev/null
+
+" Use :ww instead of :WriteWithSudo
+cnoreabbrev ww WriteWithSudo
+
+" Insert snippets
+function! InsertTemplate(name)
+	:execute "read ~/.vim_templates/" . a:name
+endfunction
+
+command! -nargs=1 InsertTemplate :call InsertTemplate(<f-args>)
+cnoreabbrev it InsertTemplate
+
