@@ -161,8 +161,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-source ~/bash_completion.sh
-
 #export GOROOT=/home/vit/go
 #export GOPATH=$HOME/Projects/crac
 
