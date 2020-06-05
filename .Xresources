@@ -1,8 +1,25 @@
 xterm*background: black
 xterm*foreground: lightgray
+XTerm*geometry: 150x46
 !xterm*faceName: monospace:pixelsize=18
-xterm*font: 9x15
+!xterm*font: 9x15
+!xterm*faceSize: 18
+!xterm*font:     *-fixed-*-*-*-18-*
+
+! VT Font Menu: Unreadable
+xterm*faceSize1: 8
+! VT font menu: Tiny
+xterm*faceSize2: 10
+! VT font menu: Medium
+xterm*faceSize3: 12
+! VT font menu: Large
+xterm*faceSize4: 16
+! VT font menu: Huge
+xterm*faceSize5: 22
 
 xterm*VT100.Translations: #override \
+    Ctrl <Key> minus: smaller-vt-font() \n\
+    Ctrl <Key> plus: larger-vt-font() \n\
+    Ctrl <Key> 0: set-vt-font(d) \n\
                  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
                  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)

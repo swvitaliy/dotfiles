@@ -121,6 +121,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lh='ls -lsh'
 alias vpn='sudo openvpn --config ~/Dropbox/cert/do-vpn-server/vpn4.ovpn'
 alias https='http --default-scheme=https'
 if [ -f /home/vit/.bashrc.in ]; then
