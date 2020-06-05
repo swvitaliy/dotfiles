@@ -124,9 +124,7 @@ alias l='ls -CF'
 alias lh='ls -lsh'
 alias vpn='sudo openvpn --config ~/Dropbox/cert/do-vpn-server/vpn4.ovpn'
 alias https='http --default-scheme=https'
-if [ -f /home/vit/.bashrc.in ]; then
-	. /home/vit/.bashrc.in
-fi
+alias dfh='df -h | grep -v tmpfs | grep -v loop'
 
 # Convert camelCase to camel_case (cc2u) and CAMEL_CASE (cc2U) formats
 alias cc2_='sed -r '\''s/([a-z0-9])([A-Z])/\1_\L\2/g'\'
