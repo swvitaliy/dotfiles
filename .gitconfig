@@ -3,6 +3,7 @@
 	name = swvitaliy
 [core]
 	excludesfile = /home/vit/.gitignore_global
+	editor = vi
 [alias]
   co = checkout
   ci = commit

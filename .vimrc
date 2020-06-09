@@ -67,4 +67,5 @@ else
 	let g:XkbSwitchAssistSKeymap = 1    " for search lines
 	let g:XkbSwitchIMappings = ['ru']
 endif
+set pastetoggle=<F2>
 
