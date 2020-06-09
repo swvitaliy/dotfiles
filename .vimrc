@@ -52,13 +52,12 @@ endfunction
 command! -nargs=1 InsertTemplate :call InsertTemplate(<f-args>)
 cnoreabbrev it InsertTemplate
 
-" set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-
 " set keymap=russian-jcukenwin
 " set iminsert=0
 " set imsearch=0
 
 if $DISPLAY == "" 
+	set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 	let g:XkbSwitchEnabled = 0
 else
 	let g:XkbSwitchEnabled = 1
