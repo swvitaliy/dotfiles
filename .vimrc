@@ -61,7 +61,9 @@ if $DISPLAY == ""
 	let g:XkbSwitchEnabled = 0
 else
 	let g:XkbSwitchEnabled = 1
-	let g:XkbSwitchLib = '/usr/local/lib/libg3kbswitch.so'
+	if filereadable('/usr/local/lib/libg3kbswitch.so')
+		let g:XkbSwitchLib = '/usr/local/lib/libg3kbswitch.so'
+	endif
 
 	let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
 	let g:XkbSwitchAssistSKeymap = 1    " for search lines

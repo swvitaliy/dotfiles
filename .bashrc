@@ -142,6 +142,7 @@ cc2U() {
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+setxkbmap -option "caps:swapescape"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -178,6 +179,7 @@ export PS1="\[\033[33m\]\w|\[\033[36m\]\$(git_branch)\[\033[00m\]$ "
 
 #export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " [\[\033[01;31m\]%s\[\033[00m\]"]`\$ '
 export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:/usr/share/dotnet/sdk/2.1.4/:$HOME/.local/bin:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
 export MARKPATH=$HOME/.marks
 
