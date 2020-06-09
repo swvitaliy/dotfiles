@@ -1,3 +1,5 @@
+set runtimepath^=~/.vim/plugins/vim-xkbswitch
+
 set number
 " turns <TAB>s into spaces
 " set expandtab
@@ -49,4 +51,21 @@ endfunction
 
 command! -nargs=1 InsertTemplate :call InsertTemplate(<f-args>)
 cnoreabbrev it InsertTemplate
+
+" set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
+" set keymap=russian-jcukenwin
+" set iminsert=0
+" set imsearch=0
+
+if $DISPLAY == "" 
+	let g:XkbSwitchEnabled = 0
+else
+	let g:XkbSwitchEnabled = 1
+	let g:XkbSwitchLib = '/usr/local/lib/libg3kbswitch.so'
+
+	let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
+	let g:XkbSwitchAssistSKeymap = 1    " for search lines
+	let g:XkbSwitchIMappings = ['ru']
+endif
 

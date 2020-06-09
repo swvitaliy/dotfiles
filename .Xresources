@@ -1,10 +1,9 @@
 xterm*background: black
 xterm*foreground: lightgray
-XTerm*geometry: 150x46
-!xterm*faceName: monospace:pixelsize=18
-!xterm*font: 9x15
-!xterm*faceSize: 18
-!xterm*font:     *-fixed-*-*-*-18-*
+XTerm*geometry: 114x31
+!xterm*faceName: terminus
+!xterm*faceName: dina
+!xterm*faceSize: 14
 
 ! VT Font Menu: Unreadable
 xterm*faceSize1: 8
