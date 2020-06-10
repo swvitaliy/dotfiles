@@ -38,6 +38,8 @@ let g:netrw_browse_split = 4
 let g:netrw_altv=1
 nnoremap <g-n> :Ntree<CR>
 
+map Y y$
+
 set autoindent
 
 " Save file with sudo
