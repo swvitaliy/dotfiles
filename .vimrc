@@ -18,6 +18,8 @@ set foldnestmax=10      " 10 nested fold max
 set ttymouse=xterm2
 set mouse=a
 
+set ttimeoutlen=0
+
 nmap yy yy:silent .w !xclip -i -sel clipboard<cr>
 vmap y y:silent '<,'> w !xclip -i -sel clipboard<cr>
 colo desert
@@ -52,22 +54,23 @@ endfunction
 command! -nargs=1 InsertTemplate :call InsertTemplate(<f-args>)
 cnoreabbrev it InsertTemplate
 
-" set keymap=russian-jcukenwin
-" set iminsert=0
-" set imsearch=0
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
 
-if $DISPLAY == "" 
-	set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-	let g:XkbSwitchEnabled = 0
-else
-	let g:XkbSwitchEnabled = 1
-	if filereadable('/usr/local/lib/libg3kbswitch.so')
-		let g:XkbSwitchLib = '/usr/local/lib/libg3kbswitch.so'
-	endif
+" if $DISPLAY == "" 
+" 	set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+" 	let g:XkbSwitchEnabled = 0
+" else
+" 	let g:XkbSwitchEnabled = 1
+" 	if filereadable('/usr/local/lib/libg3kbswitch.so')
+" 		let g:XkbSwitchLib = '/usr/local/lib/libg3kbswitch.so'
+" 	endif
+" 
+" 	let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
+" 	let g:XkbSwitchAssistSKeymap = 1    " for search lines
+" 	let g:XkbSwitchIMappings = ['ru']
+" endif
 
-	let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
-	let g:XkbSwitchAssistSKeymap = 1    " for search lines
-	let g:XkbSwitchIMappings = ['ru']
-endif
 set pastetoggle=<F2>
 
