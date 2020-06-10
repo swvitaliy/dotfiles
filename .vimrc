@@ -74,3 +74,5 @@ set imsearch=0
 
 set pastetoggle=<F2>
 
+autocmd BufWritePre * :%s/\s\+$//e
+
