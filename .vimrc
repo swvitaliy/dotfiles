@@ -1,4 +1,4 @@
-set runtimepath^=~/.vim/plugins/vim-xkbswitch
+" set runtimepath^=~/.vim/plugins/vim-xkbswitch
 
 set number
 " turns <TAB>s into spaces
@@ -46,6 +46,9 @@ let g:netrw_altv=1
 nnoremap <g-n> :Ntree<CR>
 
 map Y y$
+
+set listchars=eol:$,tab:<->,trail:~,extends:>,precedes:<
+noremap <F3> :set list!<CR>
 
 set autoindent
 
@@ -100,3 +103,5 @@ set pastetoggle=<F2>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
+hi clear SpellBad
+hi SpellBad ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
