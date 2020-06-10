@@ -4,6 +4,8 @@ set number
 " turns <TAB>s into spaces
 " set expandtab
 
+set backspace=indent,eol,start	" more powerful backspacing
+
 set cursorline
 set showcmd             " show command in bottom bar
 set incsearch           " search as characters are entered
