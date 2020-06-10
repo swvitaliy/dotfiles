@@ -103,5 +103,3 @@ set pastetoggle=<F2>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-hi clear SpellBad
-hi SpellBad ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
