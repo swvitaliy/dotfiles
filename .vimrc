@@ -54,11 +54,19 @@ endfunction
 command! -nargs=1 InsertTemplate :call InsertTemplate(<f-args>)
 cnoreabbrev it InsertTemplate
 
+" Git commit on vim write
+function! GitCommit()
+	:execute '!if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then git add % && git commit -m "change %"; fi'
+endfunction
+
+command! -nargs=0 GitCommit :call GitCommit()
+cnoreabbrev gci GitCommit
+
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 
-" if $DISPLAY == "" 
+" if $DISPLAY == ""
 " 	set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 " 	let g:XkbSwitchEnabled = 0
 " else
@@ -66,7 +74,7 @@ set imsearch=0
 " 	if filereadable('/usr/local/lib/libg3kbswitch.so')
 " 		let g:XkbSwitchLib = '/usr/local/lib/libg3kbswitch.so'
 " 	endif
-" 
+"
 " 	let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
 " 	let g:XkbSwitchAssistSKeymap = 1    " for search lines
 " 	let g:XkbSwitchIMappings = ['ru']
