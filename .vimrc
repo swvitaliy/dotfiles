@@ -62,6 +62,13 @@ endfunction
 command! -nargs=0 GitCommit :call GitCommit()
 cnoreabbrev gci GitCommit
 
+function! GitCommitPush()
+	:execute '!if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then git add % && git commit -m "change %"; git push; fi'
+endfunction
+
+command! -nargs=0 GitCommitPush :call GitCommitPush()
+cnoreabbrev gcp GitCommitPush
+
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
