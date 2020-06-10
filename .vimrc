@@ -29,6 +29,11 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <A-Left> :-tabmove<CR>
 nnoremap <A-Right> :+tabmove<CR>
 
+noremap <C-N><C-N> :set invnumber<CR>
+noremap <C-N>1 :set relativenumber<CR>
+noremap <C-N>0 :set norelativenumber<CR>
+
+
 autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
 autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
 
