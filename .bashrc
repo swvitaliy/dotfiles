@@ -21,7 +21,7 @@ COLOR_YELLOW='1;33'
 COLOR_WHITE='1;37'
 COLOR_NOCOLOR='0'
 
-blue(){ tput setaf 4; echo $@; tput sgr0; } 
+blue(){ tput setaf 4; echo $@; tput sgr0; }
 
 
 # Формируем коды для переключения цвета в двух вариантах: для подстановки в приглашение PS1 и для подстановки в обычный echo.
@@ -125,6 +125,7 @@ alias lh='ls -lsh'
 alias vpn='sudo openvpn --config ~/Dropbox/cert/do-vpn-server/vpn4.ovpn'
 alias https='http --default-scheme=https'
 alias dfh='df -h | grep -v loop'
+alias duh='du -sh $(ls -A) | sort -hr'
 
 # Convert camelCase to camel_case (cc2u) and CAMEL_CASE (cc2U) formats
 alias cc2_='sed -r '\''s/([a-z0-9])([A-Z])/\1_\L\2/g'\'
