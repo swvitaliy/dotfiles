@@ -47,7 +47,7 @@ nnoremap <g-n> :Ntree<CR>
 
 map Y y$
 
-set listchars=eol:$,tab:<->,trail:~,extends:>,precedes:<
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 noremap <F3> :set list!<CR>
 
 set autoindent
