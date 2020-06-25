@@ -5,6 +5,8 @@ XTerm*geometry: 114x31
 !xterm*faceName: dina
 !xterm*faceSize: 14
 
+xterm*ScrollBar: false
+
 ! VT Font Menu: Unreadable
 xterm*faceSize1: 8
 ! VT font menu: Tiny

@@ -23,6 +23,8 @@ set mouse=a
 
 set ttimeoutlen=0
 
+set undofile " Maintain undo history between sessions
+
 nmap yy yy:silent .w !xclip -i -sel clipboard<cr>
 vmap y y:silent '<,'> w !xclip -i -sel clipboard<cr>
 colo desert
