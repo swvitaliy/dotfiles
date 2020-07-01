@@ -1,4 +1,5 @@
 [submodule ".vim_templates"]
 	path = .vim_templates
 	url = git@github.com:swvitaliy/vim_templates.git
+	branch = master
 	ignore = dirty
