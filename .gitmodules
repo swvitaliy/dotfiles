@@ -1,3 +1,4 @@
 [submodule ".vim_templates"]
 	path = .vim_templates
-	url = ./.vim_templates
+	url = git@github.com:swvitaliy/vim_templates.git
+	ignore = dirty
