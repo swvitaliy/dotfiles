@@ -218,3 +218,14 @@ export NVM_DIR="/home/vit/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 # nvm use v8.11 %1> /dev/null
 #export PATH=/home/vit/Projects/depot_tools:"$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+use_cpp_vim_templates() {
+	for I in ~/.vim_templates/*.cpp; do J=${I##*/}; K=${J%.cpp}; ln -s "$I" "${HOME}/.vim_templates/${K}";  done
+}
+
+unuse_vim_templates () {
+	find "${HOME}/.vim_templates" -maxdepth 1 -type l -delete
+}
+
