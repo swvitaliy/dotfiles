@@ -1,5 +1,8 @@
 " set runtimepath^=~/.vim/plugins/vim-xkbswitch
 
+helptags ~/.vim/doc
+source ~/.vim/plugin/matchit.vim
+
 set number
 " turns <TAB>s into spaces
 " set expandtab
@@ -38,6 +41,8 @@ nnoremap <A-Right> :+tabmove<CR>
 noremap <C-N><C-N> :set invnumber<CR>
 noremap <C-N>1 :set relativenumber<CR>
 noremap <C-N>0 :set norelativenumber<CR>
+
+nnoremap I i<CR>
 
 
 autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg

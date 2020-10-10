@@ -229,3 +229,5 @@ unuse_vim_templates () {
 	find "${HOME}/.vim_templates" -maxdepth 1 -type l -delete
 }
 
+alias weechat="ssh root@188.226.139.136 -t screen -x"
+alias tb="nc termbin.com 9999"

@@ -4,6 +4,8 @@ XTerm*geometry: 114x31
 !xterm*faceName: terminus
 !xterm*faceName: dina
 !xterm*faceSize: 14
+XTerm*font: -*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-*
+XTerm*utf8: 1
 
 xterm*ScrollBar: false
 
