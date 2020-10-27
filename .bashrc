@@ -117,6 +117,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -174,7 +176,7 @@ fi
 #}
 
 git_branch() {
-  git branch 2>/dev/null | grep '^*' | colrm 1 2
+  echo $(__git_ps1) | sed -re 's/\(([^)]+)\)/\1/'
 }
 
 #export PS1="\[\033[32m\]\w|\[\033[33m\]\$(git_branch)\[\033[00m\]$ "
@@ -183,6 +185,11 @@ export PS1="\[\033[33m\]\w|\[\033[36m\]\$(git_branch)\[\033[00m\]$ "
 #export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " [\[\033[01;31m\]%s\[\033[00m\]"]`\$ '
 export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:/usr/share/dotnet/sdk/2.1.4/:$HOME/.local/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
+
+if [[ -d "$HOME/Android" ]];
+then
+	export PATH=$HOME/Android/Sdk/platform-tools:$PATH
+fi
 
 export MARKPATH=$HOME/.marks
 
@@ -231,3 +238,10 @@ unuse_vim_templates () {
 
 alias weechat="ssh root@188.226.139.136 -t screen -x"
 alias tb="nc termbin.com 9999"
+
+
+if [ -d $(pwd)/Android/Sdk ];
+then
+	export ANDROID_SDK=$(pwd)/Android/Sdk
+fi
+

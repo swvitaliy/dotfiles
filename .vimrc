@@ -1,7 +1,15 @@
 " set runtimepath^=~/.vim/plugins/vim-xkbswitch
 
 helptags ~/.vim/doc
-source ~/.vim/plugin/matchit.vim
+" source ~/.vim/plugin/matchit.vim
+" /usr/include/c++/7
+let &path.="/usr/include/c++/7"
+
+" use spaces instead tabs
+" set tabstop=4
+" set softtabstop=4
+" set shiftwidth=4
+"" set noexpandtab
 
 set number
 " turns <TAB>s into spaces
@@ -60,6 +68,9 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 noremap <F3> :set list!<CR>
 
 set autoindent
+
+set colorcolumn=110
+highlight ColorColumn ctermbg=lightgray
 
 " Save file with sudo
 command! -nargs=0  WriteWithSudo :w !sudo tee % >/dev/null
