@@ -240,8 +240,11 @@ alias weechat="ssh root@188.226.139.136 -t screen -x"
 alias tb="nc termbin.com 9999"
 
 
-if [ -d $(pwd)/Android/Sdk ];
+if [ -d $HOME/Android/Sdk ];
 then
 	export ANDROID_SDK=$(pwd)/Android/Sdk
+	export ANDROID_SDK_ROOT=$(pwd)/Android/Sdk
+	export PATH=$HOME/Android/Sdk/emulator:$PATH
+
 fi
 
