@@ -28,7 +28,7 @@ Plug 'dense-analysis/ale'
 call plug#end()
 
 let g:bufferline_echo = 0
-let g:molokai_original = 1
+" let g:molokai_original = 1
 let g:airline_theme = 'term'
 
 let g:NERDTreeDirArrowExpandable = ''
@@ -63,6 +63,8 @@ let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
+
+let g:ale_completion_enabled = 1
 
 " End of ALE
 
@@ -110,7 +112,8 @@ nmap yy yy:silent .w !xclip -i -sel clipboard<cr>
 vmap y y:silent '<,'> w !xclip -i -sel clipboard<cr>
 
 " colorscheme
-colo molokai
+" colo molokai
+colo delek
 
 syntax on
 nnoremap <C-Left> :tabprevious<CR>
