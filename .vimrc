@@ -19,6 +19,7 @@ else
 endif
 
 Plug 'wincent/terminus'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
@@ -29,7 +30,7 @@ let g:airline_theme = 'term'
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 
-let g:ctrlp_cmd = 'CtrlPBuffer'
+" let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_match_window = 'min:4,max:999'
 
 " write in buffer when close buffer
@@ -41,6 +42,19 @@ map <C-c> :SignifyHunkDiff<CR>
 
 " undo changes of line of code
 map <C-x> :SignifyHunkUndo<CR>
+
+" syntastic eslint enable
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+
 
 helptags ~/.vim/doc
 " source ~/.vim/plugin/matchit.vim
@@ -84,7 +98,10 @@ set undodir=~/.vim_undo
 
 nmap yy yy:silent .w !xclip -i -sel clipboard<cr>
 vmap y y:silent '<,'> w !xclip -i -sel clipboard<cr>
-colo desert
+
+" colorscheme
+colo molokai
+
 syntax on
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
