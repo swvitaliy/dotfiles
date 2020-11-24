@@ -28,7 +28,7 @@ Plug 'dense-analysis/ale'
 call plug#end()
 
 let g:bufferline_echo = 0
-" let g:molokai_original = 1
+let g:molokai_original = 1
 let g:airline_theme = 'term'
 
 let g:NERDTreeDirArrowExpandable = ''
@@ -112,8 +112,7 @@ nmap yy yy:silent .w !xclip -i -sel clipboard<cr>
 vmap y y:silent '<,'> w !xclip -i -sel clipboard<cr>
 
 " colorscheme
-" colo molokai
-colo delek
+colo molokai
 
 syntax on
 nnoremap <C-Left> :tabprevious<CR>
