@@ -120,10 +120,10 @@ fi
 
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -alF --group-directories-first'
 alias la='ls -A'
 alias l='ls -CF'
-alias lh='ls -ltsh'
+alias lh='ls -ltsh --group-directories-first'
 alias vpn='sudo openvpn --config ~/Dropbox/cert/do-vpn-server/vpn4.ovpn'
 alias https='http --default-scheme=https'
 alias dfh='df -h | grep -v loop'

@@ -1,21 +1,66 @@
 " set runtimepath^=~/.vim/plugins/vim-xkbswitch
 
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+map <C-t> :NERDTreeToggle<CR>
+
+call plug#begin('~/.vim/plugged')
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-bufferline'
+
+if has('nvim') || has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'
+else
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
+
+Plug 'wincent/terminus'
+
+call plug#end()
+
+let g:bufferline_echo = 0
+let g:molokai_original = 1
+let g:airline_theme = 'term'
+
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+
+let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_match_window = 'min:4,max:999'
+
+" write in buffer when close buffer
+set autowriteall
+nnoremap <C-b> :buffers<CR>:buffer<Space>
+
+" show diff of line of code
+map <C-c> :SignifyHunkDiff<CR>
+
+" undo changes of line of code
+map <C-x> :SignifyHunkUndo<CR>
+
 helptags ~/.vim/doc
 " source ~/.vim/plugin/matchit.vim
 " /usr/include/c++/7
 let &path.="/usr/include/c++/7"
 
-" use spaces instead tabs
-" set tabstop=4
-" set softtabstop=4
-" set shiftwidth=4
-"" set noexpandtab
+" disable selection when press Enter twice or Space
+nnoremap <cr> :noh<CR><CR>:<backspace>
+map <Space> :noh<CR>
 
 set number
-" turns <TAB>s into spaces
-" set expandtab
 
-set backspace=indent,eol,start	" more powerful backspacing
+" use spaces instead tabs
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+
+" set backspace=indent,eol,start	" more powerful backspacing
 
 set cursorline
 set showcmd             " show command in bottom bar
