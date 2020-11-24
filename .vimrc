@@ -6,6 +6,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-t> :NERDTreeToggle<CR>
 
 call plug#begin('~/.vim/plugged')
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
@@ -19,7 +21,9 @@ else
 endif
 
 Plug 'wincent/terminus'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
@@ -31,7 +35,7 @@ let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 
 " let g:ctrlp_cmd = 'CtrlPBuffer'
-let g:ctrlp_match_window = 'min:4,max:999'
+let g:ctrlp_match_window = 'min:4,max:33'
 
 " write in buffer when close buffer
 set autowriteall
@@ -43,18 +47,24 @@ map <C-c> :SignifyHunkDiff<CR>
 " undo changes of line of code
 map <C-x> :SignifyHunkUndo<CR>
 
-" syntastic eslint enable
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" ALE
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '·'
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
+" let g:ale_linters = {'javascript':['eslint', 'fecs', 'flow-language-server', 'jscs', 'jshint', 'standard', 'tsserver', 'xo']}
+" let g:ale_linters = {'javascript':['flow-language-server']}
+let g:ale_linters_ignore = {'javascript':['tsserver']}
+
+" let g:ale_javascript_flow_executable = 'flow'
+let g:ale_javascript_flow_use_respect_pragma = 1
+
+let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+
+" End of ALE
 
 helptags ~/.vim/doc
 " source ~/.vim/plugin/matchit.vim
