@@ -35,6 +35,9 @@ Plug 'heavenshell/vim-jsdoc', {
 
 let g:jsdoc_lehre_path = '/usr/local/bin/lehre'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 let g:bufferline_echo = 0
@@ -43,6 +46,13 @@ let g:airline_theme = 'term'
 
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
+let g:NERDTreeWinSize=43
+
+map <C-p> :bp<CR>
+map <C-n> :bn<CR>
+
+" go to last edited file
+map <C-e> :e#<CR>
 
 " let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_match_window = 'min:4,max:33'
@@ -77,6 +87,8 @@ let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_fix_on_save = 1
 
 let g:ale_completion_enabled = 1
+
+map <C-d> :ALEGoToDefinition<CR>
 
 " End of ALE
 
@@ -132,9 +144,9 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <A-Left> :-tabmove<CR>
 nnoremap <A-Right> :+tabmove<CR>
 
-noremap <C-N><C-N> :set invnumber<CR>
-noremap <C-N>1 :set relativenumber<CR>
-noremap <C-N>0 :set norelativenumber<CR>
+noremap <C-M>~ :set invnumber<CR>
+noremap <C-M>1 :set relativenumber<CR>
+noremap <C-M>0 :set norelativenumber<CR>
 
 nnoremap I i<CR>
 
