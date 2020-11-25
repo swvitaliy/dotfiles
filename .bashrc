@@ -148,6 +148,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias dockps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
 alias dockports='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
 alias dockip='docker inspect -f '\''{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'\'
+alias dconf_gterm_dump='dconf dump /org/gnome/terminal/legacy/ > ~/.gnome-terminal-dconf-dump.txt'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
