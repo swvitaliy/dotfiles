@@ -25,6 +25,16 @@ Plug 'wincent/terminus'
 
 Plug 'dense-analysis/ale'
 
+" Need to install 'lehre' nodejs module in system modules
+"   nvm use system # if use nvm
+"   [sudo] npm install -g lehre
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
+
+let g:jsdoc_lehre_path = '/usr/local/bin/lehre'
+
 call plug#end()
 
 let g:bufferline_echo = 0
@@ -50,6 +60,8 @@ map <C-x> :SignifyHunkUndo<CR>
 " ALE
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '·'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 
 
 " let g:ale_linters = {'javascript':['eslint', 'fecs', 'flow-language-server', 'jscs', 'jshint', 'standard', 'tsserver', 'xo']}
