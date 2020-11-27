@@ -112,7 +112,7 @@ set expandtab
 
 " set backspace=indent,eol,start	" more powerful backspacing
 
-set cursorline
+" set cursorline
 set showcmd             " show command in bottom bar
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
