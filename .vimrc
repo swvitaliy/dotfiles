@@ -92,6 +92,9 @@ map <C-d> :ALEGoToDefinition<CR>
 
 " End of ALE
 
+nnoremap <Tab>   <c-W>w
+nnoremap <S-Tab> <c-W>W
+
 helptags ~/.vim/doc
 " source ~/.vim/plugin/matchit.vim
 " /usr/include/c++/7
