@@ -39,6 +39,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'OmniSharp/omnisharp-vim'
 
+Plug 'editorconfig/editorconfig-vim'
+
 call plug#end()
 
 let g:molokai_original = 1
@@ -97,7 +99,7 @@ let g:ale_fix_on_save = 1
 
 let g:ale_completion_enabled = 1
 
-map <C-z> :ALEGoToDefinition<CR>
+map <C-g> :ALEGoToDefinition<CR>
 
 " End of ALE
 
@@ -176,6 +178,8 @@ augroup END
 " Enable snippet completion, using the ultisnips plugin
 " let g:OmniSharp_want_snippet=1
 
+let g:OmniSharp_diagnostic_showid = 1
+
 " End of OmniSharp-vim
 
 helptags ~/.vim/doc
@@ -253,8 +257,8 @@ noremap <F3> :set list!<CR>
 
 set autoindent
 
-set colorcolumn=110
-highlight ColorColumn ctermbg=lightgray
+" set colorcolumn=110
+" highlight ColorColumn ctermbg=lightgray
 
 " Save file with sudo
 command! -nargs=0  WriteWithSudo :w !sudo tee % >/dev/null
