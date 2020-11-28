@@ -105,6 +105,7 @@ nnoremap <Tab>   <c-W>w
 nnoremap <S-Tab> <c-W>W
 
 cnoreabbrev os OpenSession
+cnoreabbrev cs CloseSession
 cnoreabbrev ss SaveSession
 
 " OmniSharp-vim
