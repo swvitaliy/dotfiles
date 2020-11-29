@@ -1,7 +1,36 @@
+set spell
+set spl=en_us,ru_ru
+
+autocmd FileType xml setlocal nospell
+autocmd FileType vim setlocal nospell
+autocmd FileType dosini setlocal nospell
+
+set ar
+set awa
+
+let s:autoread_timer = -1
+
+fun! s:checktime(timer_id)
+    for buf in filter(map(getbufinfo(), {_, v -> v.bufnr}), {_, v -> buflisted(v)})
+        exe 'checktime' buf
+    endfor
+    call timer_start(3000, function('s:checktime'))
+endfun
+
+command! -bang Autoread
+            \  if <bang>0
+            \|   call timer_stop(s:autoread_timer)
+            \| else
+            \|   let s:autoread_timer = timer_start(1000,
+            \        function('s:checktime'), {'repeat': -1})
+            \| endif
+
 " set runtimepath^=~/.vim/plugins/vim-xkbswitch
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+set pastetoggle=<F2>
 
 map <C-t> :NERDTreeToggle<CR>
 
@@ -19,9 +48,12 @@ else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 
+" Enhanced terminal integration for Vim
+" Cursor shape change in insert and replace mode
+" automatically pick up changes made by other processes
 Plug 'wincent/terminus'
-" Plug 'vim-syntastic/syntastic'
 
+" Plug 'vim-syntastic/syntastic'
 Plug 'dense-analysis/ale'
 
 " Need to install 'lehre' nodejs module in system modules
@@ -106,9 +138,9 @@ map <C-g> :ALEGoToDefinition<CR>
 nnoremap <Tab>   <c-W>w
 nnoremap <S-Tab> <c-W>W
 
-cnoreabbrev os OpenSession
-cnoreabbrev cs CloseSession
-cnoreabbrev ss SaveSession
+cnoreabbrev <expr> os (getcmdtype() == ':' && getcmdline() =~ '^os') ? 'OpenSession' : 'os'
+cnoreabbrev <expr> cs (getcmdtype() == ':' && getcmdline() =~ '^cs') ? 'CloseSession' : 'cs'
+cnoreabbrev <expr> ss (getcmdtype() == ':' && getcmdline() =~ '^ss') ? 'SaveSession' : 'ss'
 
 " OmniSharp-vim
 " https://github.com/OmniSharp/omnisharp-vim#configuration
@@ -307,7 +339,6 @@ set imsearch=0
 " 	let g:XkbSwitchIMappings = ['ru']
 " endif
 
-set pastetoggle=<F2>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
