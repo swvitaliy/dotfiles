@@ -4,6 +4,7 @@ set spl=en_us,ru_ru
 autocmd FileType xml setlocal nospell
 autocmd FileType vim setlocal nospell
 autocmd FileType dosini setlocal nospell
+autocmd FileType omnisharplog setlocal nospell
 
 set ar
 set awa
