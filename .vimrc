@@ -6,6 +6,8 @@ autocmd FileType vim setlocal nospell
 autocmd FileType dosini setlocal nospell
 autocmd FileType omnisharplog setlocal nospell
 
+
+
 set ar
 set awa
 
@@ -25,8 +27,6 @@ command! -bang Autoread
             \|   let s:autoread_timer = timer_start(1000,
             \        function('s:checktime'), {'repeat': -1})
             \| endif
-
-" set runtimepath^=~/.vim/plugins/vim-xkbswitch
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -52,7 +52,9 @@ endif
 " Enhanced terminal integration for Vim
 " Cursor shape change in insert and replace mode
 " automatically pick up changes made by other processes
-Plug 'wincent/terminus'
+" I disabled this plugin because it sometimes can't paste text in paste mode
+" and it disable to do it manually
+" Plug 'wincent/terminus'
 
 " Plug 'vim-syntastic/syntastic'
 Plug 'dense-analysis/ale'
@@ -74,6 +76,9 @@ Plug 'OmniSharp/omnisharp-vim'
 
 Plug 'editorconfig/editorconfig-vim'
 
+"
+Plug 'Yggdroot/indentLine'
+
 call plug#end()
 
 let g:molokai_original = 1
@@ -87,6 +92,9 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeWinSize=43
+
+let g:indentLine_leadingSpaceChar='·'
+let g:indentLine_leadingSpaceEnabled='1'
 
 map <C-p> :bp<CR>
 map <C-n> :bn<CR>
@@ -227,9 +235,9 @@ map <Space> :noh<CR>
 set number
 
 " use spaces instead tabs
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 
 
@@ -245,7 +253,7 @@ set hlsearch            " highlight matches
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
-set foldmethod=syntax
+set foldmethod=indent
 
 set ttymouse=xterm2
 set mouse=a
