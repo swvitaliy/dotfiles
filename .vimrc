@@ -2,6 +2,7 @@ set spell
 set spl=en_us,ru_ru
 
 autocmd FileType xml setlocal nospell
+autocmd FileType sh setlocal nospell
 autocmd FileType vim setlocal nospell
 autocmd FileType dosini setlocal nospell
 autocmd FileType omnisharplog setlocal nospell
@@ -18,7 +19,7 @@ fun! s:checktime(timer_id)
         exe 'checktime' buf
     endfor
     call timer_start(3000, function('s:checktime'))
-endfun
+endf
 
 command! -bang Autoread
             \  if <bang>0
@@ -78,6 +79,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 "
 Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 

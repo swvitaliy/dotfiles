@@ -131,6 +131,7 @@ alias vpn='sudo openvpn --config ~/Dropbox/cert/do-vpn-server/vpn4.ovpn'
 alias https='http --default-scheme=https'
 alias dfh='df -h | grep -v loop'
 alias duh='du -sh $(ls -A) | sort -hr'
+alias duhp1gb='find . -size +1G -ls | sort -k7n'
 
 # Convert camelCase to camel_case (cc2u) and CAMEL_CASE (cc2U) formats
 alias cc2_='sed -r '\''s/([a-z0-9])([A-Z])/\1_\L\2/g'\'
@@ -153,6 +154,8 @@ alias dockports='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
 alias dockip='docker inspect -f '\''{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'\'
 alias dconf_gterm_dump='dconf dump /org/gnome/terminal/legacy/ > ~/.gnome-terminal-dconf-dump.txt'
 alias dconf_gterm_load='dconf load /org/gnome/terminal/legacy/ < ~/.gnome-terminal-dconf-dump.txt'
+
+alias v=vim
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like

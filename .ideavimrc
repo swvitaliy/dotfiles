@@ -1,7 +1,18 @@
-source ~/.vimrc
+" source ~/.vimrc
 " set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 source ~/.ideavim_cyrillic
 
 set clipboard+=unnamedplus
+
+
+call plug#begin('~/.vim/plugged')
+
+
+Plug 'editorconfig/editorconfig-vim'
+
+call plug#end()
+
+set ideavimsupport=
+
 
