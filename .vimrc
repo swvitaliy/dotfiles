@@ -1,3 +1,5 @@
+set noswf
+
 set spell
 set spl=en_us,ru_ru
 
@@ -224,6 +226,10 @@ augroup END
 let g:OmniSharp_diagnostic_showid = 1
 
 " End of OmniSharp-vim
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
 
 helptags ~/.vim/doc
 " source ~/.vim/plugin/matchit.vim

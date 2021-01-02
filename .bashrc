@@ -208,6 +208,8 @@ function jump {
   cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
 
+alias j='jump'
+
 function mark {
   mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
 }
@@ -217,7 +219,29 @@ function unmark {
 }
 
 function marks {
-  ls -l "$MARKPATH" | sed 's/ / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+  PS3="goto: "
+  MARKLIST=$(ls -l "$MARKPATH" | sed 's/ / /g' | awk -F' ' '{if (NR > 1) print $9" -> "$11;}')
+  options=()
+  while read -r line
+  do
+    options+=("$line")
+  done < <(printf '%s\n' "$MARKLIST")
+  COLUMNS=12
+  select ma in "${options[@]}";
+  do
+    mm=$(echo "${ma}" | cut -d' ' -f1 -)
+    jump "${mm}"
+    break;
+  done
+}
+
+function m {
+  if [[ "$1" == "" ]];
+  then
+    marks
+  else
+    mark $1
+  fi
 }
 
 _completemarks() {
