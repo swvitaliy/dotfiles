@@ -208,8 +208,6 @@ function jump {
   cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
 
-alias j='jump'
-
 function mark {
   mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
 }
@@ -235,14 +233,9 @@ function marks {
   done
 }
 
-function m {
-  if [[ "$1" == "" ]];
-  then
-    marks
-  else
-    mark $1
-  fi
-}
+alias j='jump'
+alias um='unmark'
+alias m='marks'
 
 _completemarks() {
    local curw=${COMP_WORDS[COMP_CWORD]}
