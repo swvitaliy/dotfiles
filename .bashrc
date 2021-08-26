@@ -105,6 +105,14 @@ xterm*|rxvt*)
     ;;
 esac
 
+alias tm="tmux attach -t base || tmux new -s base"
+alias tm-kill="tmux kill-session -t base"
+
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#    exec tmux
+#fi
+
+
 alias python=python3
 alias pip=pip3
 
@@ -217,7 +225,7 @@ function unmark {
 }
 
 function marks {
-  PS3="goto: "
+  PS3="goto> "
   MARKLIST=$(ls -l "$MARKPATH" | sed 's/ / /g' | awk -F' ' '{if (NR > 1) print $9" -> "$11;}')
   options=()
   while read -r line
@@ -248,7 +256,7 @@ complete -F _completemarks jump unmark
 
 export NVM_DIR="/home/vit/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-# nvm use v8.11 %1> /dev/null
+nvm use 12 > /dev/null
 #export PATH=/home/vit/Projects/depot_tools:"$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -271,5 +279,10 @@ then
 	export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 	export PATH=$HOME/Android/Sdk/emulator:$PATH
 
+fi
+
+if [ -d $HOME/.cargo/bin ];
+then
+  export PATH=$HOME/.cargo/bin:$PATH
 fi
 

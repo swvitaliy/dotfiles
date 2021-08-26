@@ -359,3 +359,6 @@ set imsearch=0
 
 autocmd BufWritePre * :%s/\s\+$//e
 
+iabbrev #i #include
+iabbrev #d #define
+
