@@ -137,7 +137,7 @@ alias l='ls -CF'
 alias lh='ls -ltsh --group-directories-first'
 alias vpn='sudo openvpn --config ~/Dropbox/cert/do-vpn-server/vpn4.ovpn'
 alias https='http --default-scheme=https'
-alias dfh='df -h | grep -v loop'
+alias dfh='df -HT | grep -v loop'
 alias duh='du -sh $(ls -A) | sort -hr'
 alias duhp1gb='find . -size +1G -ls | sort -k7n'
 
@@ -164,6 +164,7 @@ alias dconf_gterm_dump='dconf dump /org/gnome/terminal/legacy/ > ~/.gnome-termin
 alias dconf_gterm_load='dconf load /org/gnome/terminal/legacy/ < ~/.gnome-terminal-dconf-dump.txt'
 
 alias v=vim
+alias yget='yt-dlp -o "~/Videos/YouTube/%(title)s.%(ext)s"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -199,7 +200,7 @@ git_branch() {
 export PS1="\[\033[33m\]\w|\[\033[36m\]\$(git_branch)\[\033[00m\]$ "
 
 #export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " [\[\033[01;31m\]%s\[\033[00m\]"]`\$ '
-export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:/usr/share/dotnet/sdk/2.1.4/:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:/usr/share/dotnet/sdk/2.1.4/:$HOME/.local/bin:$HOME/Apps:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
 if [[ -d "$HOME/Android" ]];
