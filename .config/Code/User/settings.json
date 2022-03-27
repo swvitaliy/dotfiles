@@ -3,9 +3,9 @@
   "C_Cpp.updateChannel": "Insiders",
   "editor.renderControlCharacters": true,
   "vim.useSystemClipboard": true,
-  "window.zoomLevel": 0,
   "editor.inlineSuggest.enabled": true,
   "files.autoSave": "afterDelay",
+  "editor.tabSize": 2,
 
   // prettier
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -225,7 +225,10 @@
     "statusBar.uoFolderBackground": "#007ACC",
     "statusBar.debuggingBackground": "#8FBCBB",
     "statusBar.foreground": "#434C5E",
-    "statusBar.debuggingForeground": "#434C5E",
-    "statusBar.noFolderBackground": "#8FBCBB"
-  }
+    "statusBar.noFolderBackground": "#8FBCBB",
+    "statusBar.debuggingForeground": "#434C5E"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.tree.indent": 12,
+  "window.zoomLevel": -1
 }

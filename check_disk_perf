@@ -1,0 +1,5 @@
+#!/bin/bash
+
+hdparm -Tt /dev/nvme0n1
+dd if=/dev/zero of=output bs=8k count=10k
+dd if=/dev/zero of=output bs=8k count=10k oflag=dsync
