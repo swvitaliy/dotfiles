@@ -197,7 +197,7 @@ git_branch() {
 }
 
 #export PS1="\[\033[32m\]\w|\[\033[33m\]\$(git_branch)\[\033[00m\]$ "
-export PS1="\[\033[33m\]\w|\[\033[36m\]\$(git_branch)\[\033[00m\]$ "
+export PS1="\[\033[33m\]\W|\[\033[36m\]\$(git_branch)\[\033[00m\]$ "
 
 #export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " [\[\033[01;31m\]%s\[\033[00m\]"]`\$ '
 export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:/usr/share/dotnet/sdk/2.1.4/:$HOME/.local/bin:$HOME/Apps:$PATH
