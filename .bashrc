@@ -183,7 +183,7 @@ tl() {
 }
 
 alias tl0=tl
-alias tl1=tl 1
+alias tl1='tl 1'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
