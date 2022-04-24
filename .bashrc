@@ -166,6 +166,25 @@ alias dconf_gterm_load='dconf load /org/gnome/terminal/legacy/ < ~/.gnome-termin
 alias v=vim
 alias yget='yt-dlp -o "~/Videos/YouTube/%(title)s.%(ext)s"'
 
+# Adding new exit node:
+# mkdir $HOME/.tailscale
+# echo -n 100..... > $HOME/.tailscale/exit_node1
+# tl --- Start vpn WO exit node
+# tl 1 --- Start vpn with exit node 1
+tl() {
+  n=$1
+  if [[ "$n" == "" ]];
+  then
+    (set -x; sudo tailscale up --reset)
+  else
+    exn=$(cat "$HOME/.tailscale/exit_node$n")
+    (set -x; sudo tailscale up --exit-node=$exn)
+  fi
+}
+
+alias tl0=tl
+alias tl1=tl 1
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
