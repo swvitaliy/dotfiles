@@ -166,6 +166,12 @@ alias dconf_gterm_load='dconf load /org/gnome/terminal/legacy/ < ~/.gnome-termin
 alias v=vim
 alias yget='yt-dlp -o "~/Videos/YouTube/%(title)s.%(ext)s"'
 
+cd_fzf() {
+  d=$(fd -t d | fzf --preview 'ls -lh {}' -q "${1}")
+  [[ "${d}" != "" ]] && cd "${d}"
+}
+alias cf='cd_fzf'
+
 # Adding new exit node:
 # mkdir $HOME/.tailscale
 # echo -n 100..... > $HOME/.tailscale/exit_node1
@@ -177,12 +183,18 @@ tl() {
   then
     (set -x; sudo tailscale up --reset)
   else
-    exn=$(cat "$HOME/.tailscale/exit_node$n")
-    (set -x; sudo tailscale up --exit-node=$exn)
+    if [[ "$n" == "s" ]];
+    then
+      (set -x; tailscale status)
+    else
+      exn=$(cat "$HOME/.tailscale/exit_node$n")
+      (set -x; sudo tailscale up --exit-node=$exn)
+    fi
   fi
 }
 
 alias tl0=tl
+alias tls='tl s'
 alias tl1='tl 1'
 
 # Alias definitions.
