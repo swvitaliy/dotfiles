@@ -245,7 +245,11 @@ export LC_COLLATE=ru_RU.UTF-8
 export LC_CTYPE=ru_RU.UTF-8
 
 function jump {
-  cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+  if [[ "${1}" == "" ]]; then
+    marks
+  else
+    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+  fi
 }
 
 function mark {
@@ -257,20 +261,24 @@ function unmark {
 }
 
 function marks {
-  PS3="goto> "
-  MARKLIST=$(ls -l "$MARKPATH" | sed 's/ / /g' | awk -F' ' '{if (NR > 1) print $9" -> "$11;}')
-  options=()
-  while read -r line
-  do
-    options+=("$line")
-  done < <(printf '%s\n' "$MARKLIST")
-  COLUMNS=12
-  select ma in "${options[@]}";
-  do
-    mm=$(echo "${ma}" | cut -d' ' -f1 -)
-    jump "${mm}"
-    break;
-  done
+  if [[ "${1}" != "" ]]; then
+    mark "${1}"
+  else
+    PS3="goto> "
+    MARKLIST=$(ls -ltr "$MARKPATH" | sed 's/ / /g' | awk -F' ' '{if (NR > 1) print $9" -> "$11;}')
+    options=()
+    while read -r line
+    do
+      options+=("$line")
+    done < <(printf '%s\n' "$MARKLIST")
+    COLUMNS=12
+    select ma in "${options[@]}";
+    do
+      mm=$(echo "${ma}" | cut -d' ' -f1 -)
+      jump "${mm}"
+      break;
+    done
+  fi
 }
 
 alias j='jump'
