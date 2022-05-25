@@ -296,7 +296,7 @@ complete -F _completemarks jump unmark
 
 export NVM_DIR="/home/vit/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm use 12 > /dev/null
+nvm use 14 > /dev/null
 #export PATH=/home/vit/Projects/depot_tools:"$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
