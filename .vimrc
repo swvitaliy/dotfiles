@@ -257,13 +257,12 @@ set expandtab
 set updatetime=250
 
 let mapleader=" "
-set nowrap
 set scrolloff=8
 set hidden " switch between buffers w\o saving
 
 nmap <leader>w :w!<cr>
 nmap <leader>qq :bd<cr>
-nmap <leader>qa :bufdo<cr>
+nmap <leader>qa :bufdo bd<cr>
 nmap <leader>l :bnext<cr>
 nmap <leader>h :bprevious<cr>
 
@@ -276,6 +275,13 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+
+" 256 colors in terminal
+set t_Co=256
+
+" set nowrap
+set wrap
+set linebreak
 
 " enable/disable enhanced tabline. (c) >
 let g:airline#extensions#tabline#enabled = 1
@@ -300,8 +306,19 @@ set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 set foldmethod=indent
 
+set mousehide " hide mouse cursor when input text
+
 set ttymouse=xterm2
 set mouse=a
+set termencoding=utf-8
+set novisualbell
+set t_vb=
+
+set encoding=utf-8
+set fileencodings=utf8,cp1251
+
+set clipboard=unnamed
+set ruler
 
 set ttimeoutlen=0
 
