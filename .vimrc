@@ -45,6 +45,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-cpp-modern/vim-cpp-modern'
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
@@ -227,20 +228,25 @@ let g:OmniSharp_diagnostic_showid = 1
 
 " End of OmniSharp-vim
 
+" saving cursor position between file openes
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 
-helptags ~/.vim/doc
+"" helptags ~/.vim/doc
 " source ~/.vim/plugin/matchit.vim
 " /usr/include/c++/7
-let &path.="/usr/include/c++/7"
+"" let &path.="/usr/include/c++/7"
 
 " disable selection when press Enter twice or Space
 nnoremap <cr> :noh<CR><CR>:<backspace>
 map <Space> :noh<CR>
 
+"
+" https://www.youtube.com/watch?v=oJOj2RqWEqs
+
 set number
+set relativenumber
 
 " use spaces instead tabs
 set tabstop=2
@@ -248,6 +254,37 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
+set updatetime=250
+
+let mapleader=" "
+set nowrap
+set scrolloff=8
+set hidden " switch between buffers w\o saving
+
+nmap <leader>w :w!<cr>
+nmap <leader>qq :bd<cr>
+nmap <leader>qa :bufdo<cr>
+nmap <leader>l :bnext<cr>
+nmap <leader>h :bprevious<cr>
+
+set nobackup " no swap files
+set nowb
+set noswapfile
+
+" Remove sound
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" enable/disable enhanced tabline. (c) >
+let g:airline#extensions#tabline#enabled = 1
+
+" enable/disable displaying open splits per tab (only when tabs are opened) >
+let g:airline#extensions#tabline#show_splits = 1
+
+"  enable/disable displaying buffers with a single tab. (c) >
+let g:airline#extensions#tabline#show_buffers = 1
 
 " set backspace=indent,eol,start	" more powerful backspacing
 
@@ -288,7 +325,12 @@ noremap <C-M>1 :set relativenumber<CR>
 noremap <C-M>0 :set norelativenumber<CR>
 
 nnoremap I i<CR>
+imap jj <Esc>
+imap jk <Esc>
+imap kj <Esc>
 
+nmap oo o<Esc>k
+nmap OO O<Esc>j
 
 autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
 autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
