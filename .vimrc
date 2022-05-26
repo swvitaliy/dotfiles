@@ -41,11 +41,29 @@ map <C-t> :NERDTreeToggle<CR>
 call plug#begin('~/.vim/plugged')
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'preservim/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-cpp-modern/vim-cpp-modern'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mihaifm/bufstop'
+Plug 'neoclide/coc-eslint'
+Plug 'jiangmiao/auto-pairs'
+Plug 'puremourning/vimspector'
+Plug 'wookayin/fzf-ripgrep.vim'
+
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+" Plug 'maxmellow/vim-jsx-pretty'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'branch': 'release/0.x'
+  \ }
+
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
@@ -93,6 +111,9 @@ let g:molokai_original = 1
 
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
+" Prettier configs
+let g:prettier#quickfix_enabled = 0
+autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
@@ -292,7 +313,7 @@ let g:airline#extensions#tabline#show_splits = 1
 "  enable/disable displaying buffers with a single tab. (c) >
 let g:airline#extensions#tabline#show_buffers = 1
 
-" set backspace=indent,eol,start	" more powerful backspacing
+set backspace=indent,eol,start	" more powerful backspacing
 
 " set cursorline
 set showcmd             " show command in bottom bar
@@ -320,10 +341,52 @@ set fileencodings=utf8,cp1251
 set clipboard=unnamed
 set ruler
 
+set fillchars+=vert:│
+hi VertSplit ctermbg=NONE guibg=NONE
+
 set ttimeoutlen=0
 
 set undofile " Maintain undo history between sessions
 set undodir=~/.vim_undo
+
+" REMAPS ------------------------------------------
+" Autocomplete
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
+
+" Window navigation
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+" Moving lines
+nnoremap <S-j> :m .+1<CR>==
+nnoremap <S-k> :m .-2<CR>==
+vnoremap <S-j> :m '>+1<CR>gv=gv
+vnoremap <S-k> :m '<-2<CR>gv=gv
+
+" Keymap Coc
+nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Nerdtree navigation
+nnoremap <leader>nn :NERDTreeToggle<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
+
+" Buffers navigation
+map <leader>b :Bufstop<CR>
+let g:BufstopAutoSpeedToggle = 1
+
+" Fzf maps
+map <Leader>ff :Files<CR>
+map <Leader>fb :BLines<CR>
+map <Leader>fa :Rg<CR>
+let $FZF_DEFAULT_COMMAND = 'fd --type f'
 
 nmap yy yy:silent .w !xclip -i -sel clipboard<cr>
 vmap y y:silent '<,'> w !xclip -i -sel clipboard<cr>
@@ -391,7 +454,7 @@ command! -nargs=0 GitCommit :call GitCommit()
 cnoreabbrev gci GitCommit
 
 function! GitCommitPush()
-	:execute '!if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then git add % && git commit -m "change %"; git push; fi'
+  :execute '!if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then git add % && git commit -m "change %"; git push; fi'
 endfunction
 
 command! -nargs=0 GitCommitPush :call GitCommitPush()
