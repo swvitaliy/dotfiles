@@ -1,14 +1,37 @@
 {
-  "editor.fontSize": 14,
+  "workbench.colorTheme": "Darker than One Dark Pro",
+  "keyboard.layout": "ru",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.formatOnPaste": true,
+  "editor.rulers": [110],
+  "vim.vimrc.path": "$HOME/.vimrc",
+  // "vim.statusBarColorControl": true,
+  // "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+  // "vim.statusBarColors.insert": "#BF616A",
+  // "vim.statusBarColors.visual": "#B48EAD",
+  // "vim.statusBarColors.visualline": "#B48EAD",
+  // "vim.statusBarColors.visualblock": "#A3BE8C",
+  // "vim.statusBarColors.replace": "#D08770",
+  // "vim.statusBarColors.commandlineinprogress": "#007ACC",
+  // "vim.statusBarColors.searchinprogressmode": "#007ACC",
+  // "vim.statusBarColors.easymotionmode": "#007ACC",
+  // "vim.statusBarColors.easymotioninputmode": "#007ACC",
+  // "vim.statusBarColors.surroundinputmode": "#007ACC",
+  "vim.easymotion": true,
+  "vim.surround": true,
+  "vim.searchHighlightTextColor": "yellow",
+  "explorer.decorations.colors": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.tree.indent": 12,
+  "editor.detectIndentation": false,
+  "editor.fontSize": 12,
   "C_Cpp.updateChannel": "Insiders",
   "editor.renderControlCharacters": true,
   "vim.useSystemClipboard": true,
   "editor.inlineSuggest.enabled": true,
   "files.autoSave": "afterDelay",
   "editor.tabSize": 2,
-
-  // prettier
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //"editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -16,76 +39,272 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-
-  // ViM settings
   "vim.autoindent": true,
   "vim.visualModeKeyBindingsNonRecursive": [
-    { "before": ["ш"], "after": ["i"] },
-    { "before": ["ц"], "after": ["w"] },
-    { "before": ["у"], "after": ["e"] },
-    { "before": ["к"], "after": ["r"] },
-    { "before": ["е"], "after": ["t"] },
-    { "before": ["н"], "after": ["y"] },
-    { "before": ["г"], "after": ["u"] },
-    { "before": ["ш"], "after": ["i"] },
-    { "before": ["щ"], "after": ["o"] },
-    { "before": ["з"], "after": ["p"] },
-    { "before": ["х"], "after": ["["] },
-    { "before": ["ъ"], "after": ["]"] },
-    { "before": ["ф"], "after": ["a"] },
-    { "before": ["ы"], "after": ["s"] },
-    { "before": ["в"], "after": ["d"] },
-    { "before": ["а"], "after": ["f"] },
-    { "before": ["п"], "after": ["g"] },
-    { "before": ["р"], "after": ["h"] },
-    { "before": ["о"], "after": ["j"] },
-    { "before": ["л"], "after": ["k"] },
-    { "before": ["д"], "after": ["l"] },
-    { "before": ["ж"], "after": [";"] },
-    { "before": ["э"], "after": ["'"] },
-    { "before": ["ё"], "after": ["\\"] },
-    { "before": ["я"], "after": ["z"] },
-    { "before": ["ч"], "after": ["x"] },
-    { "before": ["с"], "after": ["c"] },
-    { "before": ["м"], "after": ["v"] },
-    { "before": ["и"], "after": ["b"] },
-    { "before": ["т"], "after": ["n"] },
-    { "before": ["ь"], "after": ["m"] },
-    { "before": ["б"], "after": [","] },
-    { "before": ["ю"], "after": ["."] },
-    { "before": ["Й"], "after": ["Q"] },
-    { "before": ["Ц"], "after": ["W"] },
-    { "before": ["У"], "after": ["E"] },
-    { "before": ["К"], "after": ["R"] },
-    { "before": ["Е"], "after": ["T"] },
-    { "before": ["Н"], "after": ["Y"] },
-    { "before": ["Г"], "after": ["U"] },
-    { "before": ["Ш"], "after": ["I"] },
-    { "before": ["Щ"], "after": ["O"] },
-    { "before": ["З"], "after": ["P"] },
-    { "before": ["Х"], "after": ["{"] },
-    { "before": ["Ъ"], "after": ["}"] },
-    { "before": ["Ф"], "after": ["A"] },
-    { "before": ["Ы"], "after": ["S"] },
-    { "before": ["В"], "after": ["D"] },
-    { "before": ["А"], "after": ["F"] },
-    { "before": ["П"], "after": ["G"] },
-    { "before": ["Р"], "after": ["H"] },
-    { "before": ["О"], "after": ["J"] },
-    { "before": ["Л"], "after": ["K"] },
-    { "before": ["Д"], "after": ["L"] },
-    { "before": ["Ж"], "after": [":"] },
-    { "before": ["Э"], "after": ["\""] },
-    { "before": ["Я"], "after": ["Z"] },
-    { "before": ["Ч"], "after": ["X"] },
-    { "before": ["С"], "after": ["C"] },
-    { "before": ["М"], "after": ["V"] },
-    { "before": ["И"], "after": ["B"] },
-    { "before": ["Т"], "after": ["N"] },
-    { "before": ["Ь"], "after": ["M"] },
-    { "before": ["Б"], "after": ["<"] },
-    { "before": ["Ю"], "after": [">"] },
-    { "before": ["Ё"], "after": ["/", "|"] }
+    {
+      "before": ["ш"],
+      "after": ["i"]
+    },
+    {
+      "before": ["ц"],
+      "after": ["w"]
+    },
+    {
+      "before": ["у"],
+      "after": ["e"]
+    },
+    {
+      "before": ["к"],
+      "after": ["r"]
+    },
+    {
+      "before": ["е"],
+      "after": ["t"]
+    },
+    {
+      "before": ["н"],
+      "after": ["y"]
+    },
+    {
+      "before": ["г"],
+      "after": ["u"]
+    },
+    {
+      "before": ["ш"],
+      "after": ["i"]
+    },
+    {
+      "before": ["щ"],
+      "after": ["o"]
+    },
+    {
+      "before": ["з"],
+      "after": ["p"]
+    },
+    {
+      "before": ["х"],
+      "after": ["["]
+    },
+    {
+      "before": ["ъ"],
+      "after": ["]"]
+    },
+    {
+      "before": ["ф"],
+      "after": ["a"]
+    },
+    {
+      "before": ["ы"],
+      "after": ["s"]
+    },
+    {
+      "before": ["в"],
+      "after": ["d"]
+    },
+    {
+      "before": ["а"],
+      "after": ["f"]
+    },
+    {
+      "before": ["п"],
+      "after": ["g"]
+    },
+    {
+      "before": ["р"],
+      "after": ["h"]
+    },
+    {
+      "before": ["о"],
+      "after": ["j"]
+    },
+    {
+      "before": ["л"],
+      "after": ["k"]
+    },
+    {
+      "before": ["д"],
+      "after": ["l"]
+    },
+    {
+      "before": ["ж"],
+      "after": [";"]
+    },
+    {
+      "before": ["э"],
+      "after": ["'"]
+    },
+    {
+      "before": ["ё"],
+      "after": ["\\"]
+    },
+    {
+      "before": ["я"],
+      "after": ["z"]
+    },
+    {
+      "before": ["ч"],
+      "after": ["x"]
+    },
+    {
+      "before": ["с"],
+      "after": ["c"]
+    },
+    {
+      "before": ["м"],
+      "after": ["v"]
+    },
+    {
+      "before": ["и"],
+      "after": ["b"]
+    },
+    {
+      "before": ["т"],
+      "after": ["n"]
+    },
+    {
+      "before": ["ь"],
+      "after": ["m"]
+    },
+    {
+      "before": ["б"],
+      "after": [","]
+    },
+    {
+      "before": ["ю"],
+      "after": ["."]
+    },
+    {
+      "before": ["Й"],
+      "after": ["Q"]
+    },
+    {
+      "before": ["Ц"],
+      "after": ["W"]
+    },
+    {
+      "before": ["У"],
+      "after": ["E"]
+    },
+    {
+      "before": ["К"],
+      "after": ["R"]
+    },
+    {
+      "before": ["Е"],
+      "after": ["T"]
+    },
+    {
+      "before": ["Н"],
+      "after": ["Y"]
+    },
+    {
+      "before": ["Г"],
+      "after": ["U"]
+    },
+    {
+      "before": ["Ш"],
+      "after": ["I"]
+    },
+    {
+      "before": ["Щ"],
+      "after": ["O"]
+    },
+    {
+      "before": ["З"],
+      "after": ["P"]
+    },
+    {
+      "before": ["Х"],
+      "after": ["{"]
+    },
+    {
+      "before": ["Ъ"],
+      "after": ["}"]
+    },
+    {
+      "before": ["Ф"],
+      "after": ["A"]
+    },
+    {
+      "before": ["Ы"],
+      "after": ["S"]
+    },
+    {
+      "before": ["В"],
+      "after": ["D"]
+    },
+    {
+      "before": ["А"],
+      "after": ["F"]
+    },
+    {
+      "before": ["П"],
+      "after": ["G"]
+    },
+    {
+      "before": ["Р"],
+      "after": ["H"]
+    },
+    {
+      "before": ["О"],
+      "after": ["J"]
+    },
+    {
+      "before": ["Л"],
+      "after": ["K"]
+    },
+    {
+      "before": ["Д"],
+      "after": ["L"]
+    },
+    {
+      "before": ["Ж"],
+      "after": [":"]
+    },
+    {
+      "before": ["Э"],
+      "after": ["\""]
+    },
+    {
+      "before": ["Я"],
+      "after": ["Z"]
+    },
+    {
+      "before": ["Ч"],
+      "after": ["X"]
+    },
+    {
+      "before": ["С"],
+      "after": ["C"]
+    },
+    {
+      "before": ["М"],
+      "after": ["V"]
+    },
+    {
+      "before": ["И"],
+      "after": ["B"]
+    },
+    {
+      "before": ["Т"],
+      "after": ["N"]
+    },
+    {
+      "before": ["Ь"],
+      "after": ["M"]
+    },
+    {
+      "before": ["Б"],
+      "after": ["<"]
+    },
+    {
+      "before": ["Ю"],
+      "after": [">"]
+    },
+    {
+      "before": ["Ё"],
+      "after": ["/", "|"]
+    }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
@@ -112,86 +331,271 @@
       "before": ["I"],
       "after": ["i", "<cr>"]
     },
-    { "before": ["ш"], "after": ["i"] },
-    { "before": ["ц"], "after": ["w"] },
-    { "before": ["у"], "after": ["e"] },
-    { "before": ["к"], "after": ["r"] },
-    { "before": ["е"], "after": ["t"] },
-    { "before": ["н"], "after": ["y"] },
-    { "before": ["г"], "after": ["u"] },
-    { "before": ["ш"], "after": ["i"] },
-    { "before": ["щ"], "after": ["o"] },
-    { "before": ["з"], "after": ["p"] },
-    { "before": ["х"], "after": ["["] },
-    { "before": ["ъ"], "after": ["]"] },
-    { "before": ["ф"], "after": ["a"] },
-    { "before": ["ы"], "after": ["s"] },
-    { "before": ["в"], "after": ["d"] },
-    { "before": ["а"], "after": ["f"] },
-    { "before": ["п"], "after": ["g"] },
-    { "before": ["р"], "after": ["h"] },
-    { "before": ["о"], "after": ["j"] },
-    { "before": ["л"], "after": ["k"] },
-    { "before": ["д"], "after": ["l"] },
-    { "before": ["ж"], "after": [";"] },
-    { "before": ["э"], "after": ["'"] },
-    { "before": ["ё"], "after": ["\\"] },
-    { "before": ["я"], "after": ["z"] },
-    { "before": ["ч"], "after": ["x"] },
-    { "before": ["с"], "after": ["c"] },
-    { "before": ["м"], "after": ["v"] },
-    { "before": ["и"], "after": ["b"] },
-    { "before": ["т"], "after": ["n"] },
-    { "before": ["ь"], "after": ["m"] },
-    { "before": ["б"], "after": [","] },
-    { "before": ["ю"], "after": ["."] },
-    { "before": ["Й"], "after": ["Q"] },
-    { "before": ["Ц"], "after": ["W"] },
-    { "before": ["У"], "after": ["E"] },
-    { "before": ["К"], "after": ["R"] },
-    { "before": ["Е"], "after": ["T"] },
-    { "before": ["Н"], "after": ["Y"] },
-    { "before": ["Г"], "after": ["U"] },
-    { "before": ["Ш"], "after": ["I"] },
-    { "before": ["Щ"], "after": ["O"] },
-    { "before": ["З"], "after": ["P"] },
-    { "before": ["Х"], "after": ["{"] },
-    { "before": ["Ъ"], "after": ["}"] },
-    { "before": ["Ф"], "after": ["A"] },
-    { "before": ["Ы"], "after": ["S"] },
-    { "before": ["В"], "after": ["D"] },
-    { "before": ["А"], "after": ["F"] },
-    { "before": ["П"], "after": ["G"] },
-    { "before": ["Р"], "after": ["H"] },
-    { "before": ["О"], "after": ["J"] },
-    { "before": ["Л"], "after": ["K"] },
-    { "before": ["Д"], "after": ["L"] },
-    { "before": ["Ж"], "after": [":"] },
-    { "before": ["Э"], "after": ["\""] },
-    { "before": ["Я"], "after": ["Z"] },
-    { "before": ["Ч"], "after": ["X"] },
-    { "before": ["С"], "after": ["C"] },
-    { "before": ["М"], "after": ["V"] },
-    { "before": ["И"], "after": ["B"] },
-    { "before": ["Т"], "after": ["N"] },
-    { "before": ["Ь"], "after": ["M"] },
-    { "before": ["Б"], "after": ["<"] },
-    { "before": ["Ю"], "after": [">"] },
-    { "before": ["Ё"], "after": ["/", "|"] },
     {
-      "before": ["<Esc>"],
-      "after": ["<Esc>"],
-      "commands": ["workbench.action.files.save"]
+      "before": ["ш"],
+      "after": ["i"]
+    },
+    {
+      "before": ["ц"],
+      "after": ["w"]
+    },
+    {
+      "before": ["у"],
+      "after": ["e"]
+    },
+    {
+      "before": ["к"],
+      "after": ["r"]
+    },
+    {
+      "before": ["е"],
+      "after": ["t"]
+    },
+    {
+      "before": ["н"],
+      "after": ["y"]
+    },
+    {
+      "before": ["г"],
+      "after": ["u"]
+    },
+    {
+      "before": ["ш"],
+      "after": ["i"]
+    },
+    {
+      "before": ["щ"],
+      "after": ["o"]
+    },
+    {
+      "before": ["з"],
+      "after": ["p"]
+    },
+    {
+      "before": ["х"],
+      "after": ["["]
+    },
+    {
+      "before": ["ъ"],
+      "after": ["]"]
+    },
+    {
+      "before": ["ф"],
+      "after": ["a"]
+    },
+    {
+      "before": ["ы"],
+      "after": ["s"]
+    },
+    {
+      "before": ["в"],
+      "after": ["d"]
+    },
+    {
+      "before": ["а"],
+      "after": ["f"]
+    },
+    {
+      "before": ["п"],
+      "after": ["g"]
+    },
+    {
+      "before": ["р"],
+      "after": ["h"]
+    },
+    {
+      "before": ["о"],
+      "after": ["j"]
+    },
+    {
+      "before": ["л"],
+      "after": ["k"]
+    },
+    {
+      "before": ["д"],
+      "after": ["l"]
+    },
+    {
+      "before": ["ж"],
+      "after": [";"]
+    },
+    {
+      "before": ["э"],
+      "after": ["'"]
+    },
+    {
+      "before": ["ё"],
+      "after": ["\\"]
+    },
+    {
+      "before": ["я"],
+      "after": ["z"]
+    },
+    {
+      "before": ["ч"],
+      "after": ["x"]
+    },
+    {
+      "before": ["с"],
+      "after": ["c"]
+    },
+    {
+      "before": ["м"],
+      "after": ["v"]
+    },
+    {
+      "before": ["и"],
+      "after": ["b"]
+    },
+    {
+      "before": ["т"],
+      "after": ["n"]
+    },
+    {
+      "before": ["ь"],
+      "after": ["m"]
+    },
+    {
+      "before": ["б"],
+      "after": [","]
+    },
+    {
+      "before": ["ю"],
+      "after": ["."]
+    },
+    {
+      "before": ["Й"],
+      "after": ["Q"]
+    },
+    {
+      "before": ["Ц"],
+      "after": ["W"]
+    },
+    {
+      "before": ["У"],
+      "after": ["E"]
+    },
+    {
+      "before": ["К"],
+      "after": ["R"]
+    },
+    {
+      "before": ["Е"],
+      "after": ["T"]
+    },
+    {
+      "before": ["Н"],
+      "after": ["Y"]
+    },
+    {
+      "before": ["Г"],
+      "after": ["U"]
+    },
+    {
+      "before": ["Ш"],
+      "after": ["I"]
+    },
+    {
+      "before": ["Щ"],
+      "after": ["O"]
+    },
+    {
+      "before": ["З"],
+      "after": ["P"]
+    },
+    {
+      "before": ["Х"],
+      "after": ["{"]
+    },
+    {
+      "before": ["Ъ"],
+      "after": ["}"]
+    },
+    {
+      "before": ["Ф"],
+      "after": ["A"]
+    },
+    {
+      "before": ["Ы"],
+      "after": ["S"]
+    },
+    {
+      "before": ["В"],
+      "after": ["D"]
+    },
+    {
+      "before": ["А"],
+      "after": ["F"]
+    },
+    {
+      "before": ["П"],
+      "after": ["G"]
+    },
+    {
+      "before": ["Р"],
+      "after": ["H"]
+    },
+    {
+      "before": ["О"],
+      "after": ["J"]
+    },
+    {
+      "before": ["Л"],
+      "after": ["K"]
+    },
+    {
+      "before": ["Д"],
+      "after": ["L"]
+    },
+    {
+      "before": ["Ж"],
+      "after": [":"]
+    },
+    {
+      "before": ["Э"],
+      "after": ["\""]
+    },
+    {
+      "before": ["Я"],
+      "after": ["Z"]
+    },
+    {
+      "before": ["Ч"],
+      "after": ["X"]
+    },
+    {
+      "before": ["С"],
+      "after": ["C"]
+    },
+    {
+      "before": ["М"],
+      "after": ["V"]
+    },
+    {
+      "before": ["И"],
+      "after": ["B"]
+    },
+    {
+      "before": ["Т"],
+      "after": ["N"]
+    },
+    {
+      "before": ["Ь"],
+      "after": ["M"]
+    },
+    {
+      "before": ["Б"],
+      "after": ["<"]
+    },
+    {
+      "before": ["Ю"],
+      "after": [">"]
+    },
+    {
+      "before": ["Ё"],
+      "after": ["/", "|"]
     }
   ],
-  "vim.insertModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<Esc>"],
-      "after": ["<Esc>"],
-      "commands": ["workbench.action.files.save"]
-    }
-  ],
-
   "vim.handleKeys": {
     "<C-f>": false
   },
@@ -202,33 +606,21 @@
   "explorer.autoReveal": false,
   "explorer.compactFolders": false,
   "editor.fontWeight": "normal",
-  "workbench.colorTheme": "One Dark Pro Darker",
-  "workbench.iconTheme": "material-icon-theme",
-  "editor.formatOnPaste": true,
-  "vim.vimrc.path": "$HOME/.vimrc",
-  "vim.statusBarColorControl": true,
-  "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
-  "vim.statusBarColors.insert": "#BF616A",
-  "vim.statusBarColors.visual": "#B48EAD",
-  "vim.statusBarColors.visualline": "#B48EAD",
-  "vim.statusBarColors.visualblock": "#A3BE8C",
-  "vim.statusBarColors.replace": "#D08770",
-  "vim.statusBarColors.commandlineinprogress": "#007ACC",
-  "vim.statusBarColors.searchinprogressmode": "#007ACC",
-  "vim.statusBarColors.easymotionmode": "#007ACC",
-  "vim.statusBarColors.easymotioninputmode": "#007ACC",
-  "vim.statusBarColors.surroundinputmode": "#007ACC",
-  "vim.easymotion": true,
-  "vim.surround": true,
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#8FBCBB",
-    "statusBar.uoFolderBackground": "#007ACC",
-    "statusBar.debuggingBackground": "#8FBCBB",
-    "statusBar.foreground": "#434C5E",
-    "statusBar.noFolderBackground": "#8FBCBB",
-    "statusBar.debuggingForeground": "#434C5E"
+  "[makefile]": {
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false
   },
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "workbench.tree.indent": 12,
-  "window.zoomLevel": -1
+  "editor.renderWhitespace": "all",
+  "workbench.startupEditor": "none",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "customizeUI.stylesheet": {
+    "[id='workbench.view.explorer'] .pane-body ": "font-family: 'Inconsolata' !important; font-size: 24px;",
+    "[id='workbench.view.explorer'] .monaco-icon-label": "font-family: 'Inconsolata' !important; font-size: 24px;",
+    "[id='workbench.view.explorer'] .monaco-icon-label.folder-icon > .monaco-icon-label-container > .monaco-icon-name-container > .label-name": "font-family: 'Inconsolata'; font-weight: 850; filter: brightness(1.5);"
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "debug.onTaskErrors": "abort",
+  "terminal.integrated.inheritEnv": false
 }

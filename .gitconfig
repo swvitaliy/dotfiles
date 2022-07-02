@@ -1,6 +1,6 @@
 [user]
 	email = sw.vitaliy@gmail.com
-	name = swvitaliy
+	name = Vitaliy
 [core]
 	excludesfile = /home/vit/.gitignore_global
 	editor = vi
@@ -22,3 +22,8 @@
 	helper = store
 [pull]
 	rebase = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

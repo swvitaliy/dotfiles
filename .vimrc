@@ -1,4 +1,5 @@
 set noswf
+set ignorecase
 
 set spell
 set spl=en_us,ru_ru
@@ -46,6 +47,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 
+  Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -104,7 +106,26 @@ Plug 'tpope/vim-commentary'
 
 call plug#end()
 
-let g:molokai_original = 1
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+colorscheme onedark
+
+" let g:molokai_original = 1
 " let g:airline_theme = 'base16_adwaita'
 " let g:airline_theme = 'ravenpower'
 " let g:airline_theme = 'dark'
@@ -112,7 +133,7 @@ let g:molokai_original = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Prettier configs
-let g:prettier#quickfix_enabled = 0
+let g:prettier#quickfix_enabled = 1
 autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 let g:NERDTreeDirArrowExpandable = ''
@@ -277,9 +298,11 @@ set expandtab
 
 set updatetime=250
 
-let mapleader=" "
+let mapleader=";"
 set scrolloff=8
 set hidden " switch between buffers w\o saving
+
+set autoindent
 
 nmap <leader>w :w!<cr>
 nmap <leader>qq :bd<cr>
@@ -374,6 +397,18 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocActionAsync('format')
+
+autocmd BufWritePre *.cpp :Format
+
 " Nerdtree navigation
 nnoremap <leader>nn :NERDTreeToggle<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
@@ -391,9 +426,6 @@ let $FZF_DEFAULT_COMMAND = 'fd --type f'
 nmap yy yy:silent .w !xclip -i -sel clipboard<cr>
 vmap y y:silent '<,'> w !xclip -i -sel clipboard<cr>
 
-" colorscheme
-colo molokai
-
 syntax on
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
@@ -405,12 +437,7 @@ noremap <C-M>1 :set relativenumber<CR>
 noremap <C-M>0 :set norelativenumber<CR>
 
 nnoremap I i<CR>
-imap jj <Esc>
-imap jk <Esc>
-imap kj <Esc>
-
-nmap oo o<Esc>k
-nmap OO O<Esc>j
+map Y y$
 
 autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
 autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
@@ -421,16 +448,10 @@ let g:netrw_browse_split = 4
 let g:netrw_altv=1
 nnoremap <g-n> :Ntree<CR>
 
-map Y y$
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 noremap <F3> :set list!<CR>
-
-set autoindent
-
-" set colorcolumn=110
-" highlight ColorColumn ctermbg=lightgray
-
+"
 " Save file with sudo
 command! -nargs=0  WriteWithSudo :w !sudo tee % >/dev/null
 

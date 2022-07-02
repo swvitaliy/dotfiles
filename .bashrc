@@ -196,6 +196,9 @@ tl() {
 alias tl0=tl
 alias tls='tl s'
 alias tl1='tl 1'
+alias tl2='tl 2'
+alias tl3='tl 3'
+alias tl4='tl 4'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
