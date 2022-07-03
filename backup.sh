@@ -26,13 +26,24 @@ function error() {
 
     finish=`date -Iseconds`
     ddiff=$(dateutils.ddiff "${start}" "${finish}" -f '%Yy %dd %Hh %Mm %Ss' | sed 's/\b0[ymdh]\b\s*//g')
-    log1 "${PROGNAME} - ERROR (diration: ${ddiff})"
-    notify1 "Backup" "Backup - ERROR"
+    log1 "${PROGNAME} ${src} ERROR (diration: ${ddiff})"
+    notify1 "Backup" "Backup ERROR"
     exit 1
 }
+
+function lockfile_release() {
+    rm -f /tmp/backup.lock
+}
+
 trap 'error ${LINENO} ${?}' ERR
 
 #####
+
+if ! (set -o noclobber ; echo > /tmp/backup.lock) ; then
+    log1 "${PROGNAME} the backup.lock already exists"
+    exit 1
+fi
+trap lockfile_release EXIT
 
 tailsc_status=`tailscale status`
 if [[ "${tailsc_status}" == "Tailscale is stopped." ]]; then
@@ -40,22 +51,22 @@ if [[ "${tailsc_status}" == "Tailscale is stopped." ]]; then
 fi
 
 start=`date -Iseconds`
-log1 "${PROGNAME} running..."
+log1 "${PROGNAME} ${src} running..."
 notify1 "Backup" "Backup running..."
 
 if mountpoint -q "${dst}"; then
   log1 "${dst} already mounted"
 else
-  log1 "mount dir ${dst}"
-  sshfs -o StrictHostKeyChecking=no "${dst}" "${mnt}"
+  log1 "mount ${dst}"
+  sshfs -o allow_other,default_permissions,StrictHostKeyChecking=no "${dst}" "${mnt}"
 
-  log1 "dir ${dst} mounted successful"
+  log1 "${dst} mounted successful"
 fi
 
-rsync -av --exclude="node_modules" --exclude="bower_components" --no-links "${src}" "${dst}"
+rsync -azv --delete --exclude="node_modules" --exclude="bower_components" --no-links "${src}" "${dst}"
 
 finish=`date -Iseconds`
 ddiff=$(dateutils.ddiff "${start}" "${finish}" -f '%Yy %dd %Hh %Mm %Ss' | sed 's/\b0[ymdh]\b\s*//g')
-log1 "${PROGNAME} - OK (duration: ${ddiff})"
-notify1 "Backup" "Backup - OK"
+log1 "${PROGNAME} ${src} OK (duration: ${ddiff})"
+notify1 "Backup" "Backup OK"
 
