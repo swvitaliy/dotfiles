@@ -63,7 +63,15 @@ else
   log1 "${dst} mounted successful"
 fi
 
-rsync -azv --delete --exclude="node_modules" --exclude="bower_components" --no-links "${src}" "${dst}"
+rsync -azv --delete --exclude="node_modules" --exclude="bower_components" --no-links "${src}" "${dst}" && \
+  exit_code=$? || exit_code=$?
+
+if [[ $exit_code -eq 0 || $exit_code -eq 23 ]]; then
+  log1 "sync finished successful"
+else
+  log1 "sync failed"
+  exit $exit_code
+fi
 
 finish=`date -Iseconds`
 ddiff=$(dateutils.ddiff "${start}" "${finish}" -f '%Yy %dd %Hh %Mm %Ss' | sed 's/\b0[ymdh]\b\s*//g')
