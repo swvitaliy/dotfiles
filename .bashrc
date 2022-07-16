@@ -167,7 +167,7 @@ alias v=vim
 alias yget='yt-dlp -o "~/Videos/YouTube/%(title)s.%(ext)s"'
 
 cd_fzf() {
-  d=$(fd -t d | fzf --preview 'ls -lh {}' -q "${1}")
+  d=$(fd --no-ignore-vcs --E node_modules -E bower_components -E dist -E backups -t d | fzf --preview 'ls -lh {}' -q "${1}")
   [[ "${d}" != "" ]] && cd "${d}"
 }
 alias cf='cd_fzf'
@@ -232,9 +232,10 @@ git_branch() {
 
 #export PS1="\[\033[32m\]\w|\[\033[33m\]\$(git_branch)\[\033[00m\]$ "
 export PS1="\[\033[33m\]\W|\[\033[36m\]\$(git_branch)\[\033[00m\]$ "
+#export PS1="\[\033[33m\]\W\[\033[00m\]$ "
 
 #export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " [\[\033[01;31m\]%s\[\033[00m\]"]`\$ '
-export PATH=$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:$HOME/.dotnet:$HOME/.local/bin:$HOME/Apps:$PATH
+export PATH=/usr/local/go/bin:$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:$HOME/.dotnet:$HOME/.local/bin:$HOME/Apps:$HOME/.dotnet:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
 if [[ -d "$HOME/Android" ]];

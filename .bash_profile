@@ -6,3 +6,4 @@ if [ -n "$BASH_VERSION" -a -n "$PS1" ]; then
     . "$HOME/.bashrc"
     fi
 fi
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

@@ -5,6 +5,7 @@
   "editor.formatOnPaste": true,
   "editor.rulers": [110],
   "vim.vimrc.path": "$HOME/.vimrc",
+  "editor.lineNumbers": "relative",
   // "vim.statusBarColorControl": true,
   // "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
   // "vim.statusBarColors.insert": "#BF616A",
@@ -25,24 +26,35 @@
   "workbench.tree.indent": 12,
   "editor.detectIndentation": false,
   "editor.fontSize": 12,
-  "C_Cpp.updateChannel": "Insiders",
   "editor.renderControlCharacters": true,
   "vim.useSystemClipboard": true,
   "editor.inlineSuggest.enabled": true,
   "files.autoSave": "afterDelay",
+  "editor.autoClosingBrackets": "never",
+
   "editor.tabSize": 2,
   //"editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true,
+    "editor.autoClosingBrackets": "never"
+  },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.autoClosingBrackets": "never"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.autoClosingBrackets": "never"
   },
+  "javascript.autoClosingTags": false,
+  "typescript.autoClosingTags": false,
   "vim.autoindent": true,
   "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["ш"],
+    { 
+      "before": ["ш"], 
       "after": ["i"]
     },
     {
@@ -307,6 +319,10 @@
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-l>"],
+      "after": ["\\", "\\", "/"]
+    },
     {
       "before": ["u"],
       "after": [],
@@ -597,7 +613,10 @@
     }
   ],
   "vim.handleKeys": {
-    "<C-f>": false
+    "<C-f>": false,
+    "<C-k>": false,
+    "<C-q>": false,
+    "<C-t>": false
   },
   "redhat.telemetry.enabled": false,
   "extensions.ignoreRecommendations": true,
@@ -613,14 +632,23 @@
   "editor.renderWhitespace": "all",
   "workbench.startupEditor": "none",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "customizeUI.stylesheet": {
-    "[id='workbench.view.explorer'] .pane-body ": "font-family: 'Inconsolata' !important; font-size: 24px;",
-    "[id='workbench.view.explorer'] .monaco-icon-label": "font-family: 'Inconsolata' !important; font-size: 24px;",
-    "[id='workbench.view.explorer'] .monaco-icon-label.folder-icon > .monaco-icon-label-container > .monaco-icon-name-container > .label-name": "font-family: 'Inconsolata'; font-weight: 850; filter: brightness(1.5);"
-  },
+  // "customizeUI.stylesheet": {
+  //   "[id='workbench.view.explorer'] .pane-body ": "font-family: 'Inconsolata' !important; font-size: 24px;",
+  //   "[id='workbench.view.explorer'] .monaco-icon-label": "font-family: 'Inconsolata' !important; font-size: 24px;",
+  //   "[id='workbench.view.explorer'] .monaco-icon-label.folder-icon > .monaco-icon-label-container > .monaco-icon-name-container > .label-name": "font-family: 'Inconsolata'; font-weight: 850; filter: brightness(1.5);"
+  // },
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "debug.onTaskErrors": "abort",
-  "terminal.integrated.inheritEnv": false
+  "terminal.integrated.inheritEnv": false,
+  "kite.showWelcomeNotificationOnStartup": false,
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "tailwindCSS.emmetCompletions": true
+
+
 }

@@ -207,7 +207,7 @@ cnoreabbrev <expr> ss (getcmdtype() == ':' && getcmdline() =~ '^ss') ? 'SaveSess
 " Note that neovim does not support `popuphidden` or `popup` yet:
 " https://github.com/neovim/neovim/issues/10996
 if has('patch-8.1.1880')
-  set completeopt=longest,menuone,popuphidden
+  set completeopt=longest,menuone,popuphidden,noinsert,noselect
   " Highlight the completion documentation popup background/foreground the same as
   " the completion menu itself, for better readability with highlighted
   " documentation.
@@ -372,6 +372,9 @@ set ttimeoutlen=0
 set undofile " Maintain undo history between sessions
 set undodir=~/.vim_undo
 
+nnoremap <expr> ' "'" . nr2char(getchar()) . "zz"
+nnoremap <expr> ` "`" . nr2char(getchar()) . "zz"
+
 " REMAPS ------------------------------------------
 " Autocomplete
 inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
@@ -504,4 +507,25 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 iabbrev #i #include
 iabbrev #d #define
+
+" ----------------------------
+" disable beep on any action
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+
+set noeb vb t_vb=
+set vb t_vb=
+" ----------------------------
+
+
+" Python, JavaScript, Go
+let g:kite_supported_languages = ['python', 'javascript', 'go']
+
+" All the languages Kite supports
+" let g:kite_supported_languages = ['*']
+
+" Turn off Kite
+" let g:kite_supported_languages = []
 
