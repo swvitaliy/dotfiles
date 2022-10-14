@@ -167,10 +167,24 @@ alias v=vim
 alias yget='yt-dlp -o "~/Videos/YouTube/%(title)s.%(ext)s"'
 
 cd_fzf() {
-  d=$(fd --no-ignore-vcs --E node_modules -E bower_components -E dist -E backups -t d | fzf --preview 'ls -lh {}' -q "${1}")
+  d=$(fd --no-ignore-vcs -E node_modules -E bower_components -E dist -E backups -E Android -E snap -t d | fzf --preview 'ls -lh {}' -q "${1}")
   [[ "${d}" != "" ]] && cd "${d}"
 }
 alias cf='cd_fzf'
+
+git_fzf() {
+  local f
+  local stat
+  if [[ "${1}" == "--stat" ]]; then
+    f="${2}"
+    stat="--stat"
+  else
+    f="${1}"
+  fi
+  git logp | fzf --preview "git show ${stat} {1}" -q "${f}"
+}
+alias gz='git_fzf'
+alias gf='git_fzf --stat'
 
 # Adding new exit node:
 # mkdir $HOME/.tailscale
@@ -241,6 +255,11 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 if [[ -d "$HOME/Android" ]];
 then
 	export PATH=$HOME/Android/Sdk/platform-tools:$PATH
+fi
+
+if [[ -d /home/linuxbrew/.linuxbrew ]];
+then
+  export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 fi
 
 export MARKPATH=$HOME/.marks
@@ -329,4 +348,20 @@ if [ -d $HOME/.cargo/bin ];
 then
   export PATH=$HOME/.cargo/bin:$PATH
 fi
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/vit/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/vit/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/vit/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/vit/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

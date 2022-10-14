@@ -1,7 +1,6 @@
 {
-  "workbench.colorTheme": "Darker than One Dark Pro",
+  "workbench.colorTheme": "Darker than One Dark Pro (Contrast)",
   "keyboard.layout": "ru",
-  "workbench.iconTheme": "material-icon-theme",
   "editor.formatOnPaste": true,
   "editor.rulers": [110],
   "vim.vimrc.path": "$HOME/.vimrc",

@@ -1,6 +1,8 @@
 set noswf
 set ignorecase
 
+let mapleader=" "
+
 set spell
 set spl=en_us,ru_ru
 
@@ -298,7 +300,6 @@ set expandtab
 
 set updatetime=250
 
-let mapleader=";"
 set scrolloff=8
 set hidden " switch between buffers w\o saving
 
