@@ -262,6 +262,11 @@ then
   export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 fi
 
+if [[ -d /home/vit/.dotnet ]];
+then
+  export DOTNET_ROOT=/home/vit/.dotnet
+fi
+
 export MARKPATH=$HOME/.marks
 
 export LC_COLLATE=ru_RU.UTF-8
@@ -365,3 +370,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH=$PATH:~/Bin
+alias k=kubectl
+complete -F __start_kubectl k

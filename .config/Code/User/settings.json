@@ -52,8 +52,8 @@
   "typescript.autoClosingTags": false,
   "vim.autoindent": true,
   "vim.visualModeKeyBindingsNonRecursive": [
-    { 
-      "before": ["ш"], 
+    {
+      "before": ["ш"],
       "after": ["i"]
     },
     {
@@ -647,7 +647,6 @@
     "javascript": "javascriptreact"
   },
   "emmet.triggerExpansionOnTab": true,
-  "tailwindCSS.emmetCompletions": true
-
-
+  "tailwindCSS.emmetCompletions": true,
+  "window.zoomLevel": 1
 }

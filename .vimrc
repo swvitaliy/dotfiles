@@ -55,7 +55,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mihaifm/bufstop'
 Plug 'neoclide/coc-eslint'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'puremourning/vimspector'
 Plug 'wookayin/fzf-ripgrep.vim'
 
@@ -156,7 +156,7 @@ let g:ctrlp_match_window = 'min:4,max:33'
 
 " write in buffer when close buffer
 set autowriteall
-nnoremap <C-b> :buffers<CR>:buffer<Space>
+nnoremap <C-b> :Buffers<CR>
 
 " show diff of line of code
 map <C-c> :SignifyHunkDiff<CR>
