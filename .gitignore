@@ -2,3 +2,6 @@
 !/.share_applications/*
 !/.vim_templates/*
 !/.vim
+!/.bashrc
+!/.vimrc
+!/.inpurc
