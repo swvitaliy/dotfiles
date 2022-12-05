@@ -29,6 +29,8 @@ let mapleader = " "
 " let maplocalleader = ","
 let maplocalleader = " "
 
+set easymotion
+
 " Use Q for formatting the current paragraph (or visual selection)
 vmap Q gq
 nmap Q gqap

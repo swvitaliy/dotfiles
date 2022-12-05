@@ -50,8 +50,8 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=100000
 
 # HOTFIX using vim tmux
 # export TERM=xterm-256color
@@ -143,6 +143,14 @@ alias duhp1gb='find . -size +1G -ls | sort -k7n'
 
 # Convert camelCase to camel_case (cc2u) and CAMEL_CASE (cc2U) formats
 alias cc2_='sed -r '\''s/([a-z0-9])([A-Z])/\1_\L\2/g'\'
+
+alias gadd='git add'
+alias gci='git ci'
+alias gpush='git push'
+alias gpull='git pull'
+alias gco='git co'
+alias gst='git st'
+alias st='git st'
 
 cc2u() {
 	echo $1 | cc2_
@@ -266,6 +274,8 @@ if [[ -d /home/vit/.dotnet ]];
 then
   export DOTNET_ROOT=/home/vit/.dotnet
 fi
+
+bind -f ~/.inputrc
 
 export MARKPATH=$HOME/.marks
 
