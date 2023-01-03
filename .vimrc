@@ -105,6 +105,9 @@ Plug 'editorconfig/editorconfig-vim'
 "
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
+Plug 'unblevable/quick-scope'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -529,4 +532,53 @@ let g:kite_supported_languages = ['python', 'javascript', 'go']
 
 " Turn off Kite
 " let g:kite_supported_languages = []
+
+
+"easymotion configuration
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+" nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+"end of easymotion configuration
+"
+"
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+highlight QuickScopePrimary guifg='#afff5f' ctermbg=237 guibg=#3E4452 gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' ctermbg=237 guibg=#3E4452 gui=underline ctermfg=81 cterm=underline
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

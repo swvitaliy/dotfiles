@@ -3,7 +3,9 @@
   "keyboard.layout": "ru",
   "editor.formatOnPaste": true,
   "editor.rulers": [110],
-  "vim.vimrc.path": "$HOME/.vimrc",
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "$HOME/.vscode.vimrc",
+  "vim.leader": " ",
   "editor.lineNumbers": "relative",
   // "vim.statusBarColorControl": true,
   // "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
@@ -319,9 +321,25 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
+      "before": ["s"],
+      "after": [" ", " ", "s"]
+    },
+    {
+      "before": ["S"],
+      "after": [" ", " ", "s"]
+    },
+    {
       "before": ["<C-l>"],
       "after": ["\\", "\\", "/"]
     },
+    {
+        "before": ["J"],
+        "commands": ["editor.action.moveLinesDownAction"]
+    }, // moveLineDown
+    {
+        "before": ["K"],
+        "commands": ["editor.action.moveLinesUpAction"]
+    }, // moveLineUp
     {
       "before": ["u"],
       "after": [],
@@ -648,7 +666,6 @@
   },
   "emmet.triggerExpansionOnTab": true,
   "tailwindCSS.emmetCompletions": true,
-  "window.zoomLevel": 1,
   "[yaml]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
@@ -659,5 +676,11 @@
       "strings": true
     },
     "editor.wordBasedSuggestions": false
-  }
+  },
+  "codeium.enableConfig": {
+  
+    "*": true
+  },
+  "git.autofetch": true,
+  "window.zoomLevel": 1
 }

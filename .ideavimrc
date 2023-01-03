@@ -3,10 +3,18 @@
 
 set vb t_vb=
 
-
 set ignorecase
 set smartcase
 set scrolloff=3 " 3 lines above/below cursor when scrolling
+
+" Plugins
+
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree'
+
+" End of Plugins
 
 " Emulated Plugins
 set surround
@@ -16,6 +24,12 @@ set clipboard+=unnamed
 
 " Use Idea to join lines smartly
 set ideajoin
+
+set quickscope
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:qs_primary_color = '#ff0000'
+let g:qs_secondary_color = '#ff00ff'
 
 " Multiple cursors support
 set multiple-cursors
@@ -30,6 +44,29 @@ let mapleader = " "
 let maplocalleader = " "
 
 set easymotion
+
+"easymotion configuration
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-f)
+nmap S <Plug>(easymotion-F)
+
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+" nmap s <Plug>(easymotion-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+"end of easymotion configuration
 
 " Use Q for formatting the current paragraph (or visual selection)
 vmap Q gq
@@ -47,6 +84,13 @@ nmap <leader>ww :w<cr>
 " nmap <leader>l <c-w>l
 " nmap <leader>k <c-w>k
 " nmap <leader>j <c-w>j
+
+" Moving lines
+nnoremap <S-j> :m .+1<CR>==
+nnoremap <S-k> :m .-2<CR>==
+vnoremap <S-j> :m '>+1<CR>gv=gv
+vnoremap <S-k> :m '<-2<CR>gv=gv
+
 
 " Closing tabs
 nmap <leader>q :action CloseContent<cr>
