@@ -108,6 +108,7 @@ Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-surround'
+" Plug 'Exafunction/codeium.vim'
 
 call plug#end()
 
@@ -169,30 +170,30 @@ map <C-x> :SignifyHunkUndo<CR>
 
 " ALE
 
-let g:ale_linters = {}
-let g:ale_linters_ignore = {}
-
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '·'
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-
-
-" let g:ale_linters = {'javascript':['eslint', 'fecs', 'flow-language-server', 'jscs', 'jshint', 'standard', 'tsserver', 'xo']}
-" let g:ale_linters = {'javascript':['flow-language-server']}
-let g:ale_linters_ignore['javascript'] = ['tsserver']
-
-" let g:ale_javascript_flow_executable = 'flow'
-let g:ale_javascript_flow_use_respect_pragma = 1
-
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
-
-" Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
-
-let g:ale_completion_enabled = 1
-
-map <C-g> :ALEGoToDefinition<CR>
+" let g:ale_linters = {}
+" let g:ale_linters_ignore = {}
+"
+" let g:ale_sign_error = '✘'
+" let g:ale_sign_warning = '·'
+" highlight ALEErrorSign ctermbg=NONE ctermfg=red
+" highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+"
+"
+" " let g:ale_linters = {'javascript':['eslint', 'fecs', 'flow-language-server', 'jscs', 'jshint', 'standard', 'tsserver', 'xo']}
+" " let g:ale_linters = {'javascript':['flow-language-server']}
+" let g:ale_linters_ignore['javascript'] = ['tsserver']
+"
+" " let g:ale_javascript_flow_executable = 'flow'
+" let g:ale_javascript_flow_use_respect_pragma = 1
+"
+" let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+"
+" " Set this variable to 1 to fix files when you save them.
+" let g:ale_fix_on_save = 1
+"
+" let g:ale_completion_enabled = 1
+"
+" map <C-g> :ALEGoToDefinition<CR>
 
 " End of ALE
 
@@ -224,7 +225,7 @@ else
 endif
 
 " Tell ALE to use OmniSharp for linting C# files, and no other linters.
-let g:ale_linters['cs'] = ['OmniSharp']
+" let g:ale_linters['cs'] = ['OmniSharp']
 
 augroup omnisharp_commands
   autocmd!
@@ -522,16 +523,6 @@ endif
 set noeb vb t_vb=
 set vb t_vb=
 " ----------------------------
-
-
-" Python, JavaScript, Go
-let g:kite_supported_languages = ['python', 'javascript', 'go']
-
-" All the languages Kite supports
-" let g:kite_supported_languages = ['*']
-
-" Turn off Kite
-" let g:kite_supported_languages = []
 
 
 "easymotion configuration
