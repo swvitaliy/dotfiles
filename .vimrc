@@ -1,7 +1,4 @@
-set noswf
-set ignorecase
-
-let mapleader=" "
+source ~/.vimrc0
 
 set spell
 set spl=en_us,ru_ru
@@ -36,8 +33,6 @@ command! -bang Autoread
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-set pastetoggle=<F2>
 
 map <C-t> :NERDTreeToggle<CR>
 
@@ -149,12 +144,6 @@ let g:NERDTreeWinSize=43
 let g:indentLine_leadingSpaceChar='·'
 let g:indentLine_leadingSpaceEnabled='1'
 
-map <C-p> :bp<CR>
-map <C-n> :bn<CR>
-
-" go to last edited file
-map <C-e> :e#<CR>
-
 " let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_match_window = 'min:4,max:33'
 
@@ -196,9 +185,6 @@ map <C-x> :SignifyHunkUndo<CR>
 " map <C-g> :ALEGoToDefinition<CR>
 
 " End of ALE
-
-nnoremap <Tab>   <c-W>w
-nnoremap <S-Tab> <c-W>W
 
 cnoreabbrev <expr> os (getcmdtype() == ':' && getcmdline() =~ '^os') ? 'OpenSession' : 'os'
 cnoreabbrev <expr> cs (getcmdtype() == ':' && getcmdline() =~ '^cs') ? 'CloseSession' : 'cs'
@@ -276,61 +262,10 @@ let g:OmniSharp_diagnostic_showid = 1
 
 " End of OmniSharp-vim
 
-" saving cursor position between file openes
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-endif
-
 "" helptags ~/.vim/doc
 " source ~/.vim/plugin/matchit.vim
 " /usr/include/c++/7
 "" let &path.="/usr/include/c++/7"
-
-" disable selection when press Enter twice or Space
-nnoremap <cr> :noh<CR><CR>:<backspace>
-map <Space> :noh<CR>
-
-"
-" https://www.youtube.com/watch?v=oJOj2RqWEqs
-
-set number
-set relativenumber
-
-" use spaces instead tabs
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-
-set updatetime=250
-
-set scrolloff=8
-set hidden " switch between buffers w\o saving
-
-set autoindent
-
-nmap <leader>w :w!<cr>
-nmap <leader>qq :bd<cr>
-nmap <leader>qa :bufdo bd<cr>
-nmap <leader>l :bnext<cr>
-nmap <leader>h :bprevious<cr>
-
-set nobackup " no swap files
-set nowb
-set noswapfile
-
-" Remove sound
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
-" 256 colors in terminal
-set t_Co=256
-
-" set nowrap
-set wrap
-set linebreak
 
 " enable/disable enhanced tabline. (c) >
 let g:airline#extensions#tabline#enabled = 1
@@ -340,62 +275,6 @@ let g:airline#extensions#tabline#show_splits = 1
 
 "  enable/disable displaying buffers with a single tab. (c) >
 let g:airline#extensions#tabline#show_buffers = 1
-
-set backspace=indent,eol,start	" more powerful backspacing
-
-" set cursorline
-set showcmd             " show command in bottom bar
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
-" turn off search highlight
-" nnoremap <leader><space> :nohlsearch<CR>
-
-set foldenable          " enable folding
-set foldlevelstart=10   " open most folds by default
-set foldnestmax=10      " 10 nested fold max
-set foldmethod=indent
-
-set mousehide " hide mouse cursor when input text
-
-set ttymouse=xterm2
-set mouse=a
-set termencoding=utf-8
-set novisualbell
-set t_vb=
-
-set encoding=utf-8
-set fileencodings=utf8,cp1251
-
-set clipboard=unnamed
-set ruler
-
-set fillchars+=vert:│
-hi VertSplit ctermbg=NONE guibg=NONE
-
-set ttimeoutlen=0
-
-set undofile " Maintain undo history between sessions
-set undodir=~/.vim_undo
-
-nnoremap <expr> ' "'" . nr2char(getchar()) . "zz"
-nnoremap <expr> ` "`" . nr2char(getchar()) . "zz"
-
-" REMAPS ------------------------------------------
-" Autocomplete
-inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
-inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
-
-" Window navigation
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
-
-" Moving lines
-nnoremap <S-j> :m .+1<CR>==
-nnoremap <S-k> :m .-2<CR>==
-vnoremap <S-j> :m '>+1<CR>gv=gv
-vnoremap <S-k> :m '<-2<CR>gv=gv
 
 " Keymap Coc
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -433,22 +312,6 @@ let $FZF_DEFAULT_COMMAND = 'fd --type f'
 
 nmap yy yy:silent .w !xclip -i -sel clipboard<cr>
 vmap y y:silent '<,'> w !xclip -i -sel clipboard<cr>
-
-syntax on
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
-nnoremap <A-Left> :-tabmove<CR>
-nnoremap <A-Right> :+tabmove<CR>
-
-noremap <C-M>~ :set invnumber<CR>
-noremap <C-M>1 :set relativenumber<CR>
-noremap <C-M>0 :set norelativenumber<CR>
-
-nnoremap I i<CR>
-map Y y$
-
-autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
-autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -489,6 +352,9 @@ endfunction
 command! -nargs=0 GitCommitPush :call GitCommitPush()
 cnoreabbrev gcp GitCommitPush
 
+scriptencoding utf-8
+
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
@@ -512,18 +378,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 iabbrev #i #include
 iabbrev #d #define
-
-" ----------------------------
-" disable beep on any action
-set noerrorbells visualbell t_vb=
-if has('autocmd')
-  autocmd GUIEnter * set visualbell t_vb=
-endif
-
-set noeb vb t_vb=
-set vb t_vb=
-" ----------------------------
-
 
 "easymotion configuration
 

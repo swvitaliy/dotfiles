@@ -1,0 +1,149 @@
+set noswf
+set ignorecase
+
+let mapleader=" "
+
+set pastetoggle=<F2>
+
+" navigation over buffers using ctrl
+map <C-p> :bp<CR>
+map <C-n> :bn<CR>
+
+" go to last edited file
+map <C-e> :e#<CR>
+
+
+nnoremap <Tab>   <c-W>w
+nnoremap <S-Tab> <c-W>W
+
+" saving cursor position between file openes
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
+
+" disable selection when press Enter twice or Space
+nnoremap <cr> :noh<CR><CR>:<backspace>
+map <Space> :noh<CR>
+
+set number
+set relativenumber
+
+" use spaces instead tabs
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+set updatetime=250
+
+set scrolloff=8
+set hidden " switch between buffers w\o saving
+
+set autoindent
+
+nmap <leader>w :w!<cr>
+nmap <leader>qq :bd<cr>
+nmap <leader>qa :bufdo bd<cr>
+nmap <leader>l :bnext<cr>
+nmap <leader>h :bprevious<cr>
+
+set nobackup " no swap files
+set nowb
+set noswapfile
+
+" Remove sound
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" 256 colors in terminal
+set t_Co=256
+
+" set nowrap
+set wrap
+set linebreak
+
+set backspace=indent,eol,start	" more powerful backspacing
+
+" set cursorline
+set showcmd             " show command in bottom bar
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+" turn off search highlight
+" nnoremap <leader><space> :nohlsearch<CR>
+
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+set foldmethod=indent
+
+set mousehide " hide mouse cursor when input text
+
+set ttymouse=xterm2
+set mouse=a
+set termencoding=utf-8
+set novisualbell
+set t_vb=
+
+set encoding=utf-8
+set fileencodings=utf8,cp1251
+
+set clipboard=unnamed
+set ruler
+
+set fillchars+=vert:│
+hi VertSplit ctermbg=NONE guibg=NONE
+
+set ttimeoutlen=0
+
+set undofile " Maintain undo history between sessions
+set undodir=~/.vim_undo
+
+nnoremap <expr> ' "'" . nr2char(getchar()) . "zz"
+nnoremap <expr> ` "`" . nr2char(getchar()) . "zz"
+
+" REMAPS ------------------------------------------
+" Autocomplete
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
+
+" Window navigation
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+" Moving lines
+nnoremap <S-j> :m .+1<CR>==
+nnoremap <S-k> :m .-2<CR>==
+vnoremap <S-j> :m '>+1<CR>gv=gv
+vnoremap <S-k> :m '<-2<CR>gv=gv
+
+syntax on
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <A-Left> :-tabmove<CR>
+nnoremap <A-Right> :+tabmove<CR>
+
+noremap <C-M>~ :set invnumber<CR>
+noremap <C-M>1 :set relativenumber<CR>
+noremap <C-M>0 :set norelativenumber<CR>
+
+nnoremap I i<CR>
+map Y y$
+
+autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
+autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
+
+" ----------------------------
+" disable beep on any action
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+
+set noeb vb t_vb=
+set vb t_vb=
+" ----------------------------
+
