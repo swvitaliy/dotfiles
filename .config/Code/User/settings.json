@@ -1,6 +1,5 @@
 {
-  "workbench.colorTheme": "Darker than One Dark Pro (Contrast)",
-  "keyboard.layout": "ru",
+  "workbench.colorTheme": "GitHub Light High Contrast",
   "editor.formatOnPaste": true,
   "editor.rulers": [110],
   "vim.vimrc.enable": true,
@@ -659,7 +658,6 @@
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "debug.onTaskErrors": "abort",
   "terminal.integrated.inheritEnv": false,
-  "kite.showWelcomeNotificationOnStartup": false,
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact"
@@ -677,10 +675,14 @@
     },
     "editor.wordBasedSuggestions": false
   },
-  "codeium.enableConfig": {
-  
+  "codeium.enableConfig": {  
     "*": true
   },
   "git.autofetch": true,
+  "redoclyOpenAPI.api.key": "sk_OMP048c1Mtwtyh28vStL7eK2UmI=_WzprYfmWM4H5yV4pjUOORv13/xryyFLuzzC4VvEDVF4=",
+  "redoclyOpenAPI.api.region": "us",
+  "[python]": {
+    "editor.formatOnType": true
+  },
   "window.zoomLevel": 1
 }
