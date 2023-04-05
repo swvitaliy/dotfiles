@@ -104,6 +104,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-surround'
 " Plug 'Exafunction/codeium.vim'
+Plug 'sirver/UltiSnips'
 
 call plug#end()
 
@@ -125,6 +126,9 @@ if (empty($TMUX))
 endif
 
 colorscheme onedark
+
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim_templates']
+let g:UltiSnipsExpandTrigger="<tab>"
 
 " let g:molokai_original = 1
 " let g:airline_theme = 'base16_adwaita'
@@ -332,6 +336,7 @@ cnoreabbrev ww WriteWithSudo
 " Insert snippets
 function! InsertTemplate(name)
 	:execute "read ~/.vim_templates/" . a:name
+  norm kdd
 endfunction
 
 command! -nargs=1 InsertTemplate :call InsertTemplate(<f-args>)
