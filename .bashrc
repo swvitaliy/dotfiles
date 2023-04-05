@@ -21,6 +21,13 @@ COLOR_YELLOW='1;33'
 COLOR_WHITE='1;37'
 COLOR_NOCOLOR='0'
 
+# [[ "${PATH}" =~ "/bin" ]] || \
+  PATH=/bin:$PATH
+
+# [[ "${PATH}" =~ "/usr/bin" ]] || \
+  PATH=/usr/bin:$PATH
+
+
 blue(){ tput setaf 4; echo $@; tput sgr0; }
 
 
@@ -151,6 +158,7 @@ alias gpull='git pull'
 alias gco='git co'
 alias gst='git st'
 alias st='git st'
+alias gch='git ch'
 
 cc2u() {
 	echo $1 | cc2_
@@ -221,6 +229,7 @@ alias tl1='tl 1'
 alias tl2='tl 2'
 alias tl3='tl 3'
 alias tl4='tl 4'
+alias tl5='tl 5'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -367,19 +376,31 @@ fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/vit/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/vit/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/vit/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/vit/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/home/vit/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/vit/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/vit/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/vit/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH=$PATH:~/Bin
 alias k=kubectl
 complete -F __start_kubectl k
+. "$HOME/.cargo/env"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/home/vit/yandex-cloud/path.bash.inc' ]; then source '/home/vit/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/home/vit/yandex-cloud/completion.bash.inc' ]; then source '/home/vit/yandex-cloud/completion.bash.inc'; fi
+
