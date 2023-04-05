@@ -7,3 +7,9 @@ if [ -n "$BASH_VERSION" -a -n "$PS1" ]; then
     fi
 fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+. "$HOME/.cargo/env"
+
+
+# Added by Toolbox App
+export PATH="$PATH:/home/vit/.local/share/JetBrains/Toolbox/scripts"
+
