@@ -105,6 +105,7 @@ Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-surround'
 " Plug 'Exafunction/codeium.vim'
 Plug 'sirver/UltiSnips'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
