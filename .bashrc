@@ -404,3 +404,5 @@ if [ -f '/home/vit/yandex-cloud/path.bash.inc' ]; then source '/home/vit/yandex-
 # The next line enables shell command completion for yc.
 if [ -f '/home/vit/yandex-cloud/completion.bash.inc' ]; then source '/home/vit/yandex-cloud/completion.bash.inc'; fi
 
+export BORG_REMOTE_PATH=/usr/local/bin/borg1/borg1
+
