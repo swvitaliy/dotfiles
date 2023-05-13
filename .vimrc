@@ -129,7 +129,9 @@ endif
 colorscheme onedark
 
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim_templates']
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<S-tab>"
+let g:UltiSnipsJumpForwardTrigger  = '<C-b>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-n>'
 
 " let g:molokai_original = 1
 " let g:airline_theme = 'base16_adwaita'
