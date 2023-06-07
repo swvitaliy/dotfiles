@@ -48,15 +48,15 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mihaifm/bufstop'
 Plug 'neoclide/coc-eslint'
+Plug 'mihaifm/bufstop'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'puremourning/vimspector'
 Plug 'wookayin/fzf-ripgrep.vim'
 
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 " Plug 'maxmellow/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
@@ -78,7 +78,7 @@ endif
 " Plug 'wincent/terminus'
 
 " Plug 'vim-syntastic/syntastic'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 
 " Need to install 'lehre' nodejs module in system modules
 "   nvm use system # if use nvm
@@ -101,7 +101,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
-Plug 'unblevable/quick-scope'
+" Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-surround'
 " Plug 'Exafunction/codeium.vim'
 Plug 'sirver/UltiSnips'

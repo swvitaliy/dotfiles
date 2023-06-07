@@ -3,13 +3,9 @@
 # Usage: backup-borg.sh
 # To restore: borg extract $BORG_REPO::computer-and-date
 
-# See also:
-# - https://jstaf.github.io/posts/backups-with-borg-rsync/
-# - https://medium.com/@mormesher/building-your-own-linux-cloud-backup-system-75750f47d550
-
 # Initialize remote repo example:
-# ssh rsync mkdir -p backups/coursera-algo
-# borg init -e repokey-blake2 rsync:backups/coursera-algo
+# ssh borgbase mkdir -p backups/coursera-algo
+# borg init -e repokey-blake2 borgbase:backups/coursera-algo
 
 set -eu
 set -o pipefail  # trace ERR through pipes
@@ -43,16 +39,16 @@ start=`date -Iseconds`
 log1 "${PROGNAME} running..."
 notify1 $PROGNAME "Backup running..."
 
-backup \
-  'rsync:backups/cpp' \
-  '/home/vit/cpp'
+# backup \
+#   'borgbase:backups/cpp' \
+#   '/home/vit/cpp'
+#
+# backup \
+#   'borgbase:backups/coursera-algo' \
+#   '/home/vit/coursera-algo'
 
 backup \
-  'rsync:backups/coursera-algo' \
-  '/home/vit/coursera-algo'
-
-backup \
-  'rsync:backups/Projects' \
+  'borgbase:repo' \
   '/home/vit/Projects'
 
 finish=`date -Iseconds`

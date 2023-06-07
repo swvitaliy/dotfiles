@@ -17,8 +17,8 @@ function error() {
     log1 "ERROR in ${JOB} : line ${LASTLINE} with exit code ${LASTERR}"
 
     finish=`date -Iseconds`
-    log1 "${PROGNAME} ERROR (diration: ${ddiff})"
     ddiff=$(dateutils.ddiff "${start}" "${finish}" -f '%Yy %dd %Hh %Mm %Ss' | sed 's/\b0[ymdh]\b\s*//g')
+    log1 "${PROGNAME} ERROR (diration: ${ddiff})"
     notify1 "Backup" "Backup ERROR"
     exit 1
 }
