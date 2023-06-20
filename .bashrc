@@ -407,3 +407,15 @@ if [ -f '/home/vit/yandex-cloud/completion.bash.inc' ]; then source '/home/vit/y
 
 export BORG_REMOTE_PATH=/usr/local/bin/borg1/borg1
 
+alias _ssh=$(which ssh)
+if [ "${TMUX}" != "" ]; then
+ssh() {
+  tmux rename-window "ssh";
+ # tmux select-pane -T "[ssh $@]";
+ printf "\033]2;[ssh $@]\033\\"
+ tmux set pane-border-format "#{pane_index} #T"
+  _ssh $@;
+  tmux select-pane -T "bash";
+}
+fi
+
