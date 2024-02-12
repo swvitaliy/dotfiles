@@ -36,6 +36,11 @@
 
   "editor.tabSize": 2,
   //"editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[cpp]": {
+    // "editor.defaultFormatter": "",
+    "editor.formatOnSave": true,
+    "editor.autoClosingBrackets": "never"
+  },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": true,
@@ -700,5 +705,9 @@
     "editor.wordBasedSuggestions": false
   },
   "git.openRepositoryInParentFolders": "never",
-  "cmake.configureOnOpen": true
+  "cmake.configureOnOpen": true,
+  "notebook.output.scrolling": true,
+  "[dart][yaml]": {
+    "editor.wordBasedSuggestions": "off"
+  }
 }

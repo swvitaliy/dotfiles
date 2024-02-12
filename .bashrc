@@ -115,6 +115,12 @@ esac
 alias tm="tmux attach -t base || tmux new -s base"
 alias tm-kill="tmux kill-session -t base"
 
+alias tm-gboo='tmux attach -t gboo || ~/tm-gboo'
+alias tm-gboo-kill='tmux kill-session -t gboo'
+
+alias tm-gboo-new='tmux attach -t gboo-new || ~/tm-gboo-new'
+alias tm-gboo-new-kill='tmux kill-session -t gboo-new'
+
 #if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #    exec tmux
 #fi
@@ -122,6 +128,8 @@ alias tm-kill="tmux kill-session -t base"
 
 alias python=python3
 alias pip=pip3
+
+alias sitemirror='wget --mirror --convert-links --adjust-extension --page-requisites --no-parent'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -144,6 +152,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lh='ls -ltsh --group-directories-first'
 alias vpn='sudo openvpn --config ~/Dropbox/cert/do-vpn-server/vpn4.ovpn'
+alias gboo-vpn='sudo openvpn --config /home/vit/Dropbox/cert/gboo/vit.ovpn'
 alias https='http --default-scheme=https'
 alias dfh='df -HT | grep -v loop'
 alias duh='du -sh $(ls -A) | sort -hr'
@@ -185,7 +194,7 @@ alias yget='yt-dlp -o "~/Videos/YouTube/%(title)s.%(ext)s"'
 
 cd_fzf() {
   d=$(fd --no-ignore-vcs -E node_modules -E bower_components -E dist -E backups -E Android -E snap -t d | fzf --preview 'ls -lh {}' -q "${1}")
-  [[ "${d}" != "" ]] && cd "${d}"
+  [[ "${d}" != "" ]] && cd "${d}" && pwd
 }
 alias cf='cd_fzf'
 
@@ -231,6 +240,7 @@ alias tl2='tl 2'
 alias tl3='tl 3'
 alias tl4='tl 4'
 alias tl5='tl 5'
+alias tl6='tl 6'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -267,7 +277,7 @@ export PS1="\[\033[33m\]\W|\[\033[36m\]\$(git_branch)\[\033[00m\]$ "
 #export PS1="\[\033[33m\]\W\[\033[00m\]$ "
 
 #export PS1='[\[\033[01;34m\]`/bin/date +"%T"`\[\033[00m\]] \w`__git_ps1 " [\[\033[01;31m\]%s\[\033[00m\]"]`\$ '
-export PATH=/usr/local/go/bin:$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:$HOME/.dotnet:$HOME/.local/bin:$HOME/Apps:$HOME/.dotnet:$PATH:$HOME/flutter/bin
+export PATH=/usr/local/go/bin:$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin/:$HOME/.dotnet:$HOME/.dotnet/tools:$HOME/.local/bin:$HOME/Apps:$HOME/.dotnet:$PATH:$HOME/flutter/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
 if [[ -d "$HOME/Android" ]];
@@ -419,3 +429,4 @@ ssh() {
 }
 fi
 
+# complete -o default -F __start_kubectl k

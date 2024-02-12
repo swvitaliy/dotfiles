@@ -9,7 +9,6 @@ function log1() {
 
 }
 
-
 function error() {
     JOB="$0"              # job name
     LASTLINE="$1"         # line of error occurrence
@@ -23,17 +22,6 @@ function error() {
     exit 1
 }
 
-function lockfile_release() {
-    rm -f /tmp/backup.lock
-}
-
 trap 'error ${LINENO} ${?}' ERR
-
-if ! (set -o noclobber ; echo > /tmp/backup.lock) ; then
-    log1 "${PROGNAME} the backup.lock already exists"
-    exit 1
-fi
-trap lockfile_release EXIT
-
 
 

@@ -7,6 +7,9 @@
 # ssh borgbase mkdir -p backups/coursera-algo
 # borg init -e repokey-blake2 borgbase:backups/coursera-algo
 
+# Dependencies:
+# apt install pv dateutils
+
 set -eu
 set -o pipefail  # trace ERR through pipes
 set -o errtrace  # trace ERR through 'time command' and other functions
@@ -53,6 +56,6 @@ backup \
 
 finish=`date -Iseconds`
 ddiff=$(dateutils.ddiff "${start}" "${finish}" -f '%Yy %dd %Hh %Mm %Ss' | sed 's/\b0[ymdh]\b\s*//g')
-log1 "${PROGNAME} OK (duration: ${ddiff})"
-notify1 $PROGNAME "BorgBackup OK"
+log1 "${PROGNAME} Done (duration: ${ddiff})"
+notify1 $PROGNAME "BorgBackup Done"
 
